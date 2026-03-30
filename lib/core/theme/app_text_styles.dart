@@ -1,102 +1,137 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+// ── Private type scale tokens ──────────────────────────────────────────────
+// These are implementation details of the typography system.
+// Callers should use the AppTextStyles getters, never these raw numbers.
+abstract final class _TypeScale {
+  // Font sizes
+  static const double displayLarge   = 57;
+  static const double displayMedium  = 45;
+  static const double displaySmall   = 36;
+  static const double headlineLarge  = 32;
+  static const double headlineMedium = 28;
+  static const double headlineSmall  = 24;
+  static const double titleLarge     = 22;
+  static const double titleMedium    = 16;
+  static const double titleSmall     = 14;
+  static const double bodyLarge      = 16;
+  static const double bodyMedium     = 14;
+  static const double bodySmall      = 12;
+  static const double labelLarge     = 14;
+  static const double labelMedium    = 12;
+  static const double labelSmall     = 11;
+
+  // Letter spacing — named by magnitude, not role, because several styles
+  // share the same value (e.g. 0.1 → titleSmall & labelLarge).
+  static const double spacingTight2 = -0.50;
+  static const double spacingTight1 = -0.25;
+  static const double spacingXs     =  0.10;
+  static const double spacingSm     =  0.15;
+  static const double spacingMd     =  0.25;
+  static const double spacingLg     =  0.40;
+  static const double spacingXl     =  0.50;
+  static const double spacingXxl    =  1.00;
+}
+
 /// Typography system for KhataMitra.
 ///
 /// - Headline / Display: Plus Jakarta Sans (bold, brand identity)
 /// - Body / Label:       Inter (readable, utility text)
 ///
-/// inherit: true is set on every style so Flutter can lerp between light and
+/// `inherit: true` is set on every style so Flutter can lerp between light and
 /// dark ThemeData without "Failed to interpolate TextStyles" errors.
+/// Colors are intentionally absent — they are applied by ThemeData.textTheme
+/// so that light and dark themes resolve correctly at runtime.
 abstract final class AppTextStyles {
-  // --- Display ---
+  // ── Display ───────────────────────────────────────────────────────
   static TextStyle get displayLarge => GoogleFonts.plusJakartaSans(
-        fontSize: 57,
+        fontSize: _TypeScale.displayLarge,
         fontWeight: FontWeight.w400,
-        letterSpacing: -0.25,
+        letterSpacing: _TypeScale.spacingTight1,
       ).copyWith(inherit: true);
 
   static TextStyle get displayMedium => GoogleFonts.plusJakartaSans(
-        fontSize: 45,
+        fontSize: _TypeScale.displayMedium,
         fontWeight: FontWeight.w400,
       ).copyWith(inherit: true);
 
   static TextStyle get displaySmall => GoogleFonts.plusJakartaSans(
-        fontSize: 36,
+        fontSize: _TypeScale.displaySmall,
         fontWeight: FontWeight.w400,
       ).copyWith(inherit: true);
 
-  // --- Headline ---
+  // ── Headline ──────────────────────────────────────────────────────
   static TextStyle get headlineLarge => GoogleFonts.plusJakartaSans(
-        fontSize: 32,
+        fontSize: _TypeScale.headlineLarge,
         fontWeight: FontWeight.w800,
-        letterSpacing: -0.5,
+        letterSpacing: _TypeScale.spacingTight2,
       ).copyWith(inherit: true);
 
   static TextStyle get headlineMedium => GoogleFonts.plusJakartaSans(
-        fontSize: 28,
+        fontSize: _TypeScale.headlineMedium,
         fontWeight: FontWeight.w700,
-        letterSpacing: -0.25,
+        letterSpacing: _TypeScale.spacingTight1,
       ).copyWith(inherit: true);
 
   static TextStyle get headlineSmall => GoogleFonts.plusJakartaSans(
-        fontSize: 24,
+        fontSize: _TypeScale.headlineSmall,
         fontWeight: FontWeight.w700,
       ).copyWith(inherit: true);
 
-  // --- Title ---
+  // ── Title ─────────────────────────────────────────────────────────
   static TextStyle get titleLarge => GoogleFonts.plusJakartaSans(
-        fontSize: 22,
+        fontSize: _TypeScale.titleLarge,
         fontWeight: FontWeight.w700,
       ).copyWith(inherit: true);
 
   static TextStyle get titleMedium => GoogleFonts.inter(
-        fontSize: 16,
+        fontSize: _TypeScale.titleMedium,
         fontWeight: FontWeight.w600,
-        letterSpacing: 0.15,
+        letterSpacing: _TypeScale.spacingSm,
       ).copyWith(inherit: true);
 
   static TextStyle get titleSmall => GoogleFonts.inter(
-        fontSize: 14,
+        fontSize: _TypeScale.titleSmall,
         fontWeight: FontWeight.w600,
-        letterSpacing: 0.1,
+        letterSpacing: _TypeScale.spacingXs,
       ).copyWith(inherit: true);
 
-  // --- Body ---
+  // ── Body ──────────────────────────────────────────────────────────
   static TextStyle get bodyLarge => GoogleFonts.inter(
-        fontSize: 16,
+        fontSize: _TypeScale.bodyLarge,
         fontWeight: FontWeight.w400,
-        letterSpacing: 0.5,
+        letterSpacing: _TypeScale.spacingXl,
       ).copyWith(inherit: true);
 
   static TextStyle get bodyMedium => GoogleFonts.inter(
-        fontSize: 14,
+        fontSize: _TypeScale.bodyMedium,
         fontWeight: FontWeight.w400,
-        letterSpacing: 0.25,
+        letterSpacing: _TypeScale.spacingMd,
       ).copyWith(inherit: true);
 
   static TextStyle get bodySmall => GoogleFonts.inter(
-        fontSize: 12,
+        fontSize: _TypeScale.bodySmall,
         fontWeight: FontWeight.w400,
-        letterSpacing: 0.4,
+        letterSpacing: _TypeScale.spacingLg,
       ).copyWith(inherit: true);
 
-  // --- Label ---
+  // ── Label ─────────────────────────────────────────────────────────
   static TextStyle get labelLarge => GoogleFonts.inter(
-        fontSize: 14,
+        fontSize: _TypeScale.labelLarge,
         fontWeight: FontWeight.w600,
-        letterSpacing: 0.1,
+        letterSpacing: _TypeScale.spacingXs,
       ).copyWith(inherit: true);
 
   static TextStyle get labelMedium => GoogleFonts.inter(
-        fontSize: 12,
+        fontSize: _TypeScale.labelMedium,
         fontWeight: FontWeight.w500,
-        letterSpacing: 0.5,
+        letterSpacing: _TypeScale.spacingXl,
       ).copyWith(inherit: true);
 
   static TextStyle get labelSmall => GoogleFonts.inter(
-        fontSize: 11,
+        fontSize: _TypeScale.labelSmall,
         fontWeight: FontWeight.w700,
-        letterSpacing: 1.0,
+        letterSpacing: _TypeScale.spacingXxl,
       ).copyWith(inherit: true);
 }
