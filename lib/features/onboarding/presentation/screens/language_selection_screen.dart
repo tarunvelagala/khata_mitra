@@ -34,21 +34,16 @@ abstract final class _Dims {
 
   // Language card grid
   static const int    gridColumns     = 2;
-  static const double gridSpacing     = 16;
-  static const double gridAspectRatio = 1.2;
+  static const double gridSpacing     = 12;
+  static const double gridAspectRatio = 1.6;
 
   // Language card
-  static const double cardPad    = 16;
+  static const double cardPad    = 12;
   static const double cardRadius = AppDimensions.radiusSmall;
 
   // Selected / unselected border widths reuse shared tokens
   static const double cardBorderSelected   = AppDimensions.borderFocused;
   static const double cardBorderUnselected = AppDimensions.borderDefault;
-
-  // Active badge
-  static const double badgePadH   = 8;
-  static const double badgePadV   = 2;
-  static const double badgeRadius = AppDimensions.radiusPill;
 
   // Card shadow
   static const double shadowAlpha   = 0.04;
@@ -217,39 +212,23 @@ class _LanguageCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Icon(
-                  isSelected ? Icons.check_circle : Icons.check_circle_outline,
-                  color: isSelected ? cs.primary : cs.outlineVariant,
-                ),
-                if (isSelected)
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: _Dims.badgePadH,
-                      vertical: _Dims.badgePadV,
-                    ),
-                    decoration: BoxDecoration(
-                      color: cs.primaryContainer,
-                      borderRadius: BorderRadius.circular(_Dims.badgeRadius),
-                    ),
-                    child: Text(
-                      'Active',
-                      style: tt.labelSmall?.copyWith(
-                        color: cs.onPrimaryContainer,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                  ),
-              ],
+            Icon(
+              isSelected ? Icons.check_circle : Icons.check_circle_outline,
+              color: isSelected ? cs.primary : cs.outlineVariant,
             ),
             const Spacer(),
-            Text(language.nativeName, style: tt.titleMedium),
+            Text(
+              language.nativeName,
+              style: tt.titleMedium,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
             const SizedBox(height: _Dims.spaceCardLabel),
             Text(
               language.englishName,
               style: tt.bodySmall?.copyWith(color: cs.onSurfaceVariant),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
             ),
           ],
         ),
