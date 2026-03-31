@@ -131,12 +131,6 @@ void main() {
       expect(BusinessType.values.length, 6);
     });
 
-    test('each value has a non-empty label', () {
-      for (final type in BusinessType.values) {
-        expect(type.label, isNotEmpty, reason: '${type.name}.label');
-      }
-    });
-
     test('each value has an icon', () {
       for (final type in BusinessType.values) {
         expect(type.icon, isNotNull, reason: '${type.name}.icon');

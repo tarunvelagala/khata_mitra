@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/constants/app_dimensions.dart';
+import '../../../../l10n/app_localizations.dart';
 import '../widgets/step_indicator.dart';
 
 // ── File-private layout constants ──────────────────────────────────────────
@@ -62,25 +63,25 @@ class _PermissionItem {
   final String why;
 }
 
-const _permissions = [
-  _PermissionItem(
-    icon: Icons.notifications_outlined,
-    title: 'Notifications',
-    description: 'Payment reminders, due alerts',
-    why: 'Never miss a collection',
-  ),
-  _PermissionItem(
-    icon: Icons.contacts_outlined,
-    title: 'Contacts',
-    description: 'Quickly add customers from phonebook',
-    why: 'Faster customer onboarding',
-  ),
-  _PermissionItem(
-    icon: Icons.sms_outlined,
-    title: 'SMS (optional)',
-    description: 'Auto-read payment confirmations',
-    why: 'Reduce manual entry',
-  ),
+List<_PermissionItem> _buildPermissions(AppLocalizations l10n) => [
+      _PermissionItem(
+        icon: Icons.notifications_outlined,
+        title: l10n.permissionNotificationsTitle,
+        description: l10n.permissionNotificationsDesc,
+        why: l10n.permissionNotificationsWhy,
+      ),
+      _PermissionItem(
+        icon: Icons.contacts_outlined,
+        title: l10n.permissionContactsTitle,
+        description: l10n.permissionContactsDesc,
+        why: l10n.permissionContactsWhy,
+      ),
+      _PermissionItem(
+        icon: Icons.sms_outlined,
+        title: l10n.permissionSmsTitle,
+        description: l10n.permissionSmsDesc,
+        why: l10n.permissionSmsWhy,
+      ),
 ];
 
 class PermissionsScreen extends StatelessWidget {
@@ -90,6 +91,8 @@ class PermissionsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final tt = Theme.of(context).textTheme;
     final cs = Theme.of(context).colorScheme;
+    final l10n = AppLocalizations.of(context)!;
+    final permissions = _buildPermissions(l10n);
 
     return Scaffold(
       body: SafeArea(
@@ -122,28 +125,23 @@ class PermissionsScreen extends StatelessWidget {
                     const SizedBox(height: _Dims.spaceAfterSubtitle),
 
                     // Title
-                    Text('App Permissions', style: tt.headlineMedium, textAlign: TextAlign.center),
-                    Text(
-                      'अनुमतियाँ',
-                      style: tt.headlineSmall?.copyWith(color: cs.primaryContainer),
-                      textAlign: TextAlign.center,
-                    ),
+                    Text(l10n.permissionsScreenTitle, style: tt.headlineMedium, textAlign: TextAlign.center),
                     const SizedBox(height: _Dims.spaceAfterSubtitle),
 
                     // Subtitle
                     Text(
-                      'We only ask for permissions we truly need. You can change these anytime in Settings.',
+                      l10n.permissionsScreenSubtitle,
                       style: tt.bodyLarge?.copyWith(color: cs.onSurfaceVariant),
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: _Dims.spaceBeforeCards),
 
                     // Permission cards
-                    ...List.generate(_permissions.length, (i) => Padding(
+                    ...List.generate(permissions.length, (i) => Padding(
                       padding: EdgeInsets.only(
-                        bottom: i < _permissions.length - 1 ? _Dims.spaceBetweenCards : 0,
+                        bottom: i < permissions.length - 1 ? _Dims.spaceBetweenCards : 0,
                       ),
-                      child: _PermissionCard(permission: _permissions[i]),
+                      child: _PermissionCard(permission: permissions[i]),
                     )),
                   ],
                 ),
@@ -176,7 +174,7 @@ class PermissionsScreen extends StatelessWidget {
                       key: const ValueKey('btn_permissions_allow'),
                       onPressed: () => context.go('/home'),
                       icon: const Icon(Icons.check),
-                      label: const Text('Allow & Continue / अनुमति दें'),
+                      label: Text(l10n.permissionsAllow),
                     ),
                   ),
                   const SizedBox(height: _Dims.spaceAfterButton),
@@ -186,14 +184,14 @@ class PermissionsScreen extends StatelessWidget {
                       key: const ValueKey('btn_permissions_skip'),
                       onPressed: () => context.go('/home'),
                       child: Text(
-                        'Skip for now',
+                        l10n.permissionsSkip,
                         style: tt.labelLarge?.copyWith(color: cs.onSurfaceVariant),
                       ),
                     ),
                   ),
                   const SizedBox(height: _Dims.spaceAfterButton),
                   Text(
-                    'KHATAMITRA DIGITAL BAHI KHATA',
+                    l10n.appTagline,
                     style: tt.labelSmall?.copyWith(color: cs.outline),
                   ),
                 ],

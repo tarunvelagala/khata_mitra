@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/constants/app_dimensions.dart';
+import '../../../../l10n/app_localizations.dart';
 import '../providers/onboarding_providers.dart';
 import '../widgets/step_indicator.dart';
 
@@ -66,6 +67,7 @@ class LanguageSelectionScreen extends ConsumerWidget {
     final selected = ref.watch(selectedLanguageProvider);
     final tt = Theme.of(context).textTheme;
     final cs = Theme.of(context).colorScheme;
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       body: SafeArea(
@@ -98,17 +100,12 @@ class LanguageSelectionScreen extends ConsumerWidget {
                     const SizedBox(height: _Dims.spaceAfterSubtitle),
 
                     // Title
-                    Text('Select Language', style: tt.headlineMedium, textAlign: TextAlign.center),
-                    Text(
-                      'भाषा चुनें',
-                      style: tt.headlineSmall?.copyWith(color: cs.primaryContainer),
-                      textAlign: TextAlign.center,
-                    ),
+                    Text(l10n.languageScreenTitle, style: tt.headlineMedium, textAlign: TextAlign.center),
                     const SizedBox(height: _Dims.spaceAfterSubtitle),
 
                     // Subtitle
                     Text(
-                      'Choose your preferred language to continue',
+                      l10n.languageScreenSubtitle,
                       style: tt.bodyLarge?.copyWith(color: cs.onSurfaceVariant),
                       textAlign: TextAlign.center,
                     ),
@@ -163,12 +160,12 @@ class LanguageSelectionScreen extends ConsumerWidget {
                       key: const ValueKey('btn_language_next'),
                       onPressed: () => context.push('/onboarding/theme'),
                       icon: const Icon(Icons.arrow_forward),
-                      label: const Text('Next / आगे बढ़ें'),
+                      label: Text(l10n.onboardingNext),
                     ),
                   ),
                   const SizedBox(height: _Dims.spaceAfterButton),
                   Text(
-                    'KHATAMITRA DIGITAL BAHI KHATA',
+                    l10n.appTagline,
                     style: tt.labelSmall?.copyWith(color: cs.outline),
                   ),
                 ],

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/constants/app_dimensions.dart';
+import '../../../../l10n/app_localizations.dart';
 import '../providers/onboarding_providers.dart';
 import '../widgets/step_indicator.dart';
 
@@ -81,6 +82,7 @@ class _ShopDetailsScreenState extends ConsumerState<ShopDetailsScreen> {
     final shopDetails = ref.watch(shopDetailsProvider);
     final tt = Theme.of(context).textTheme;
     final cs = Theme.of(context).colorScheme;
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       body: SafeArea(
@@ -113,15 +115,10 @@ class _ShopDetailsScreenState extends ConsumerState<ShopDetailsScreen> {
                           const SizedBox(height: _Dims.spaceAfterIcon),
                           const OnboardingStepIndicator(current: 3, total: 4),
                           const SizedBox(height: _Dims.spaceAfterSubtitle),
-                          Text('Your Shop Details', style: tt.headlineMedium, textAlign: TextAlign.center),
-                          Text(
-                            'दुकान की जानकारी',
-                            style: tt.headlineSmall?.copyWith(color: cs.primaryContainer),
-                            textAlign: TextAlign.center,
-                          ),
+                          Text(l10n.shopScreenTitle, style: tt.headlineMedium, textAlign: TextAlign.center),
                           const SizedBox(height: _Dims.spaceAfterSubtitle),
                           Text(
-                            'Tell us about your business so we can personalise your experience.',
+                            l10n.shopScreenSubtitle,
                             style: tt.bodyLarge?.copyWith(color: cs.onSurfaceVariant),
                             textAlign: TextAlign.center,
                           ),
@@ -137,15 +134,15 @@ class _ShopDetailsScreenState extends ConsumerState<ShopDetailsScreen> {
                       textCapitalization: TextCapitalization.words,
                       onChanged: ref.read(shopDetailsProvider.notifier).setName,
                       decoration: InputDecoration(
-                        labelText: 'Shop / Business Name',
-                        hintText: 'e.g. Sharma General Store',
+                        labelText: l10n.shopNameLabel,
+                        hintText: l10n.shopNameHint,
                         prefixIcon: const Icon(Icons.storefront_outlined),
                       ),
                     ),
                     const SizedBox(height: _Dims.spaceAfterTextField),
 
                     // Business type grid
-                    Text('Business Type', style: tt.titleSmall),
+                    Text(l10n.shopBusinessTypeLabel, style: tt.titleSmall),
                     const SizedBox(height: _Dims.spaceAfterGridLabel),
                     GridView.count(
                       crossAxisCount: _Dims.gridColumns,
@@ -157,6 +154,7 @@ class _ShopDetailsScreenState extends ConsumerState<ShopDetailsScreen> {
                       children: BusinessType.values
                           .map((type) => _BusinessTypeCard(
                                 type: type,
+                                label: type.localizedLabel(l10n),
                                 isSelected: shopDetails.businessType == type,
                                 onTap: () => ref
                                     .read(shopDetailsProvider.notifier)
@@ -197,12 +195,12 @@ class _ShopDetailsScreenState extends ConsumerState<ShopDetailsScreen> {
                           ? () => context.push('/onboarding/permissions')
                           : null,
                       icon: const Icon(Icons.arrow_forward),
-                      label: const Text('Next / आगे बढ़ें'),
+                      label: Text(l10n.onboardingNext),
                     ),
                   ),
                   const SizedBox(height: _Dims.spaceAfterButton),
                   Text(
-                    'KHATAMITRA DIGITAL BAHI KHATA',
+                    l10n.appTagline,
                     style: tt.labelSmall?.copyWith(color: cs.outline),
                   ),
                 ],
@@ -220,11 +218,13 @@ class _ShopDetailsScreenState extends ConsumerState<ShopDetailsScreen> {
 class _BusinessTypeCard extends StatelessWidget {
   const _BusinessTypeCard({
     required this.type,
+    required this.label,
     required this.isSelected,
     required this.onTap,
   });
 
   final BusinessType type;
+  final String label;
   final bool isSelected;
   final VoidCallback onTap;
 
@@ -263,7 +263,7 @@ class _BusinessTypeCard extends StatelessWidget {
             const SizedBox(width: 8),
             Expanded(
               child: Text(
-                type.label,
+                label,
                 style: tt.bodySmall?.copyWith(
                   color: isSelected ? cs.primary : cs.onSurface,
                   fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,

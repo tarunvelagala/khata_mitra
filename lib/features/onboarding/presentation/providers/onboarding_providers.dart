@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../../l10n/app_localizations.dart';
 
 enum AppLanguage {
   english('English', 'Default', 'en'),
@@ -45,16 +46,24 @@ final themeModeProvider = NotifierProvider<ThemeModeNotifier, ThemeMode>(
 // ── Shop details ──────────────────────────────────────────────────────────────
 
 enum BusinessType {
-  retail('Retail Shop', Icons.storefront_outlined),
-  wholesale('Wholesale', Icons.warehouse_outlined),
-  services('Services', Icons.handyman_outlined),
-  restaurant('Restaurant / Dhaba', Icons.restaurant_outlined),
-  pharmacy('Pharmacy', Icons.local_pharmacy_outlined),
-  other('Other', Icons.category_outlined);
+  retail(Icons.storefront_outlined),
+  wholesale(Icons.warehouse_outlined),
+  services(Icons.handyman_outlined),
+  restaurant(Icons.restaurant_outlined),
+  pharmacy(Icons.local_pharmacy_outlined),
+  other(Icons.category_outlined);
 
-  const BusinessType(this.label, this.icon);
-  final String label;
+  const BusinessType(this.icon);
   final IconData icon;
+
+  String localizedLabel(AppLocalizations l10n) => switch (this) {
+        BusinessType.retail => l10n.businessTypeRetail,
+        BusinessType.wholesale => l10n.businessTypeWholesale,
+        BusinessType.services => l10n.businessTypeServices,
+        BusinessType.restaurant => l10n.businessTypeRestaurant,
+        BusinessType.pharmacy => l10n.businessTypePharmacy,
+        BusinessType.other => l10n.businessTypeOther,
+      };
 }
 
 class ShopDetails {

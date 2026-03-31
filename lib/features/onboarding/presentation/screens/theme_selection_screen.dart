@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/constants/app_dimensions.dart';
+import '../../../../l10n/app_localizations.dart';
 import '../providers/onboarding_providers.dart';
 import '../widgets/step_indicator.dart';
 
@@ -76,6 +77,7 @@ class ThemeSelectionScreen extends ConsumerWidget {
     final selected = ref.watch(themeModeProvider);
     final tt = Theme.of(context).textTheme;
     final cs = Theme.of(context).colorScheme;
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       body: SafeArea(
@@ -109,20 +111,15 @@ class ThemeSelectionScreen extends ConsumerWidget {
 
                     // Title
                     Text(
-                      'Choose Your Theme',
+                      l10n.themeScreenTitle,
                       style: tt.headlineMedium,
-                      textAlign: TextAlign.center,
-                    ),
-                    Text(
-                      'अपना थीम चुनें',
-                      style: tt.headlineSmall?.copyWith(color: cs.primaryContainer),
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: _Dims.spaceAfterSubtitle),
 
                     // Subtitle
                     Text(
-                      'Choose your workspace vibe. You can change this later in settings.',
+                      l10n.themeScreenSubtitle,
                       style: tt.bodyLarge?.copyWith(color: cs.onSurfaceVariant),
                       textAlign: TextAlign.center,
                     ),
@@ -131,24 +128,24 @@ class ThemeSelectionScreen extends ConsumerWidget {
                     // Theme cards
                     _ThemeModeCard(
                       mode: ThemeMode.light,
-                      label: 'Light Mode',
-                      sublabel: 'उजला थीम',
+                      label: l10n.themeLightLabel,
+                      activeLabel: l10n.themeActive,
                       isSelected: selected == ThemeMode.light,
                       onTap: () => ref.read(themeModeProvider.notifier).select(ThemeMode.light),
                     ),
                     const SizedBox(height: _Dims.spaceBetweenCards),
                     _ThemeModeCard(
                       mode: ThemeMode.dark,
-                      label: 'Dark Mode',
-                      sublabel: 'अंधेरा थीम',
+                      label: l10n.themeDarkLabel,
+                      activeLabel: l10n.themeActive,
                       isSelected: selected == ThemeMode.dark,
                       onTap: () => ref.read(themeModeProvider.notifier).select(ThemeMode.dark),
                     ),
                     const SizedBox(height: _Dims.spaceBetweenCards),
                     _ThemeModeCard(
                       mode: ThemeMode.system,
-                      label: 'System Default',
-                      sublabel: 'सिस्टम अनुसार',
+                      label: l10n.themeSystemLabel,
+                      activeLabel: l10n.themeActive,
                       isSelected: selected == ThemeMode.system,
                       onTap: () => ref.read(themeModeProvider.notifier).select(ThemeMode.system),
                     ),
@@ -183,12 +180,12 @@ class ThemeSelectionScreen extends ConsumerWidget {
                       key: const ValueKey('btn_theme_next'),
                       onPressed: () => context.push('/onboarding/shop-details'),
                       icon: const Icon(Icons.arrow_forward),
-                      label: const Text('Next / आगे बढ़ें'),
+                      label: Text(l10n.onboardingNext),
                     ),
                   ),
                   const SizedBox(height: _Dims.spaceAfterButton),
                   Text(
-                    'KHATAMITRA DIGITAL BAHI KHATA',
+                    l10n.appTagline,
                     style: tt.labelSmall?.copyWith(color: cs.outline),
                   ),
                 ],
@@ -207,14 +204,14 @@ class _ThemeModeCard extends StatelessWidget {
   const _ThemeModeCard({
     required this.mode,
     required this.label,
-    required this.sublabel,
+    required this.activeLabel,
     required this.isSelected,
     required this.onTap,
   });
 
   final ThemeMode mode;
   final String label;
-  final String sublabel;
+  final String activeLabel;
   final bool isSelected;
   final VoidCallback onTap;
 
@@ -271,10 +268,6 @@ class _ThemeModeCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(label, style: tt.titleMedium),
-                        Text(
-                          sublabel,
-                          style: tt.bodySmall?.copyWith(color: cs.onSurfaceVariant),
-                        ),
                       ],
                     ),
                   ),
@@ -289,7 +282,7 @@ class _ThemeModeCard extends StatelessWidget {
                         borderRadius: BorderRadius.circular(_Dims.badgeRadius),
                       ),
                       child: Text(
-                        'Active',
+                        activeLabel,
                         style: tt.labelSmall?.copyWith(
                           color: cs.onPrimaryContainer,
                           fontWeight: FontWeight.w700,
