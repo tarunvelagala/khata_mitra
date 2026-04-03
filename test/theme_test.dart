@@ -53,7 +53,7 @@ void main() {
       high: Colors.black,
       highest: Colors.black,
     );
-    
+
     // Test lerp
     final result = a.lerp(b, 0.5);
     expect(result.lowest, Color.lerp(Colors.white, Colors.black, 0.5));
@@ -89,7 +89,9 @@ void main() {
     );
 
     // Verify ElevatedButton
-    final elevatedButtonTheme = Theme.of(tester.element(find.byType(ElevatedButton))).elevatedButtonTheme;
+    final elevatedButtonTheme = Theme.of(
+      tester.element(find.byType(ElevatedButton)),
+    ).elevatedButtonTheme;
     final elevatedButtonStyle = elevatedButtonTheme.style!;
     expect(elevatedButtonStyle.backgroundColor?.resolve({}), AppColors.primary);
 
@@ -102,7 +104,9 @@ void main() {
     expect(chipTheme.backgroundColor, AppColors.surfaceContainerHighest);
 
     // Verify TextField / InputDecoration
-    final inputDecorationTheme = Theme.of(tester.element(find.byType(TextField))).inputDecorationTheme;
+    final inputDecorationTheme = Theme.of(
+      tester.element(find.byType(TextField)),
+    ).inputDecorationTheme;
     expect(inputDecorationTheme.fillColor, AppColors.surfaceContainerHigh);
   });
 }
@@ -118,5 +122,6 @@ class _IncompatibleExtension extends ThemeExtension<AppSurfaceColors> {
     highest: Colors.black,
   );
   @override
-  AppSurfaceColors lerp(ThemeExtension<AppSurfaceColors>? other, double t) => copyWith();
+  AppSurfaceColors lerp(ThemeExtension<AppSurfaceColors>? other, double t) =>
+      copyWith();
 }

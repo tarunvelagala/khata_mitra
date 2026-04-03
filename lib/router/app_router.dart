@@ -11,9 +11,7 @@ final appRouter = GoRouter(
       path: '/home',
       builder: (context, state) => Consumer(
         builder: (context, ref, child) => Scaffold(
-          appBar: AppBar(
-            title: Text(AppLocalizations.of(context)!.appTitle),
-          ),
+          appBar: AppBar(title: Text(AppLocalizations.of(context)!.appTitle)),
           body: Center(
             child: Text(
               AppLocalizations.of(context)!.comingSoon,
@@ -21,7 +19,8 @@ final appRouter = GoRouter(
             ),
           ),
           floatingActionButton: FloatingActionButton(
-            onPressed: () => ref.read(localeStateProvider.notifier).toggleLocale(),
+            onPressed: () =>
+                ref.read(localeStateProvider.notifier).toggleLocale(),
             tooltip: 'Toggle Language',
             child: const Icon(Icons.translate),
           ),

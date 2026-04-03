@@ -57,49 +57,51 @@ class ResponsiveTextStyles {
 
   /// Mobile text styles — structurally identical to [AppTextStyles] constants.
   const ResponsiveTextStyles.forMobile()
-      : this._(
-          displayLarge: AppTextStyles.displayLarge,
-          displayMedium: AppTextStyles.displayMedium,
-          displaySmall: AppTextStyles.displaySmall,
-          headlineLarge: AppTextStyles.headlineLarge,
-          headlineMedium: AppTextStyles.headlineMedium,
-          headlineSmall: AppTextStyles.headlineSmall,
-          titleLarge: AppTextStyles.titleLarge,
-          titleMedium: AppTextStyles.titleMedium,
-          titleSmall: AppTextStyles.titleSmall,
-          bodyLarge: AppTextStyles.bodyLarge,
-          bodyMedium: AppTextStyles.bodyMedium,
-          bodySmall: AppTextStyles.bodySmall,
-          labelLarge: AppTextStyles.labelLarge,
-          labelMedium: AppTextStyles.labelMedium,
-          labelSmall: AppTextStyles.labelSmall,
-        );
+    : this._(
+        displayLarge: AppTextStyles.displayLarge,
+        displayMedium: AppTextStyles.displayMedium,
+        displaySmall: AppTextStyles.displaySmall,
+        headlineLarge: AppTextStyles.headlineLarge,
+        headlineMedium: AppTextStyles.headlineMedium,
+        headlineSmall: AppTextStyles.headlineSmall,
+        titleLarge: AppTextStyles.titleLarge,
+        titleMedium: AppTextStyles.titleMedium,
+        titleSmall: AppTextStyles.titleSmall,
+        bodyLarge: AppTextStyles.bodyLarge,
+        bodyMedium: AppTextStyles.bodyMedium,
+        bodySmall: AppTextStyles.bodySmall,
+        labelLarge: AppTextStyles.labelLarge,
+        labelMedium: AppTextStyles.labelMedium,
+        labelSmall: AppTextStyles.labelSmall,
+      );
 
   /// Tablet text styles — font sizes scaled by
   /// [AppBreakpoints.scaleFactorOf] (× 1.15). All other style properties
   /// (weight, letter-spacing, etc.) are inherited from [AppTextStyles].
   ResponsiveTextStyles.forTablet()
-      : this._(
-          displayLarge: _scale(AppTextStyles.displayLarge),
-          displayMedium: _scale(AppTextStyles.displayMedium),
-          displaySmall: _scale(AppTextStyles.displaySmall),
-          headlineLarge: _scale(AppTextStyles.headlineLarge),
-          headlineMedium: _scale(AppTextStyles.headlineMedium),
-          headlineSmall: _scale(AppTextStyles.headlineSmall),
-          titleLarge: _scale(AppTextStyles.titleLarge),
-          titleMedium: _scale(AppTextStyles.titleMedium),
-          titleSmall: _scale(AppTextStyles.titleSmall),
-          bodyLarge: _scale(AppTextStyles.bodyLarge),
-          bodyMedium: _scale(AppTextStyles.bodyMedium),
-          bodySmall: _scale(AppTextStyles.bodySmall),
-          labelLarge: _scale(AppTextStyles.labelLarge),
-          labelMedium: _scale(AppTextStyles.labelMedium),
-          labelSmall: _scale(AppTextStyles.labelSmall),
-        );
+    : this._(
+        displayLarge: _scale(AppTextStyles.displayLarge),
+        displayMedium: _scale(AppTextStyles.displayMedium),
+        displaySmall: _scale(AppTextStyles.displaySmall),
+        headlineLarge: _scale(AppTextStyles.headlineLarge),
+        headlineMedium: _scale(AppTextStyles.headlineMedium),
+        headlineSmall: _scale(AppTextStyles.headlineSmall),
+        titleLarge: _scale(AppTextStyles.titleLarge),
+        titleMedium: _scale(AppTextStyles.titleMedium),
+        titleSmall: _scale(AppTextStyles.titleSmall),
+        bodyLarge: _scale(AppTextStyles.bodyLarge),
+        bodyMedium: _scale(AppTextStyles.bodyMedium),
+        bodySmall: _scale(AppTextStyles.bodySmall),
+        labelLarge: _scale(AppTextStyles.labelLarge),
+        labelMedium: _scale(AppTextStyles.labelMedium),
+        labelSmall: _scale(AppTextStyles.labelSmall),
+      );
 
   /// Scales [style]'s [TextStyle.fontSize] by the tablet scale factor.
   static TextStyle _scale(TextStyle style) {
-    final scaleFactor = AppBreakpoints.scaleFactorOf(AppBreakpoints.tabletMinWidth);
+    final scaleFactor = AppBreakpoints.scaleFactorOf(
+      AppBreakpoints.tabletMinWidth,
+    );
     return style.copyWith(fontSize: style.fontSize! * scaleFactor);
   }
 }

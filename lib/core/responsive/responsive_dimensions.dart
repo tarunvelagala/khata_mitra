@@ -89,48 +89,60 @@ class ResponsiveDimensions {
   /// Mobile dimensions — every value equals the corresponding [AppDimensions]
   /// constant, ensuring zero visual regression on mobile.
   const ResponsiveDimensions.forMobile()
-      : this._(
-          radiusSmall: AppDimensions.radiusSmall,
-          radiusMedium: AppDimensions.radiusMedium,
-          radiusPill: AppDimensions.radiusPill,
-          elevationFlat: AppDimensions.elevationFlat,
-          buttonPaddingV: AppDimensions.buttonPaddingV,
-          buttonPaddingH: AppDimensions.buttonPaddingH,
-          inputPaddingV: AppDimensions.inputPaddingV,
-          inputPaddingH: AppDimensions.inputPaddingH,
-          borderFocused: AppDimensions.borderFocused,
-          borderDefault: AppDimensions.borderDefault,
-          dividerThickness: AppDimensions.dividerThickness,
-          dividerSpace: AppDimensions.dividerSpace,
-          appBarOpacity: AppDimensions.appBarOpacity,
-          screenHorizontalPadding: 16.0,
-          cardHorizontalPadding: 16.0,
-          sectionSpacingV: 24.0,
-          contentMaxWidth: double.infinity,
-          gridColumnCount: 1,
-        );
+    : this._(
+        radiusSmall: AppDimensions.radiusSmall,
+        radiusMedium: AppDimensions.radiusMedium,
+        radiusPill: AppDimensions.radiusPill,
+        elevationFlat: AppDimensions.elevationFlat,
+        buttonPaddingV: AppDimensions.buttonPaddingV,
+        buttonPaddingH: AppDimensions.buttonPaddingH,
+        inputPaddingV: AppDimensions.inputPaddingV,
+        inputPaddingH: AppDimensions.inputPaddingH,
+        borderFocused: AppDimensions.borderFocused,
+        borderDefault: AppDimensions.borderDefault,
+        dividerThickness: AppDimensions.dividerThickness,
+        dividerSpace: AppDimensions.dividerSpace,
+        appBarOpacity: AppDimensions.appBarOpacity,
+        screenHorizontalPadding: 16.0,
+        cardHorizontalPadding: 16.0,
+        sectionSpacingV: 24.0,
+        contentMaxWidth: double.infinity,
+        gridColumnCount: 1,
+      );
 
   /// Tablet dimensions — spatial tokens are scaled by
   /// [AppBreakpoints.scaleFactorOf] (× 1.15). Optical constants are unchanged.
   ResponsiveDimensions.forTablet()
-      : this._(
-          radiusSmall: AppDimensions.radiusSmall * AppBreakpoints.scaleFactorOf(AppBreakpoints.tabletMinWidth),
-          radiusMedium: AppDimensions.radiusMedium * AppBreakpoints.scaleFactorOf(AppBreakpoints.tabletMinWidth),
-          radiusPill: AppDimensions.radiusPill,
-          elevationFlat: AppDimensions.elevationFlat,
-          buttonPaddingV: AppDimensions.buttonPaddingV * AppBreakpoints.scaleFactorOf(AppBreakpoints.tabletMinWidth),
-          buttonPaddingH: AppDimensions.buttonPaddingH * AppBreakpoints.scaleFactorOf(AppBreakpoints.tabletMinWidth),
-          inputPaddingV: AppDimensions.inputPaddingV * AppBreakpoints.scaleFactorOf(AppBreakpoints.tabletMinWidth),
-          inputPaddingH: AppDimensions.inputPaddingH * AppBreakpoints.scaleFactorOf(AppBreakpoints.tabletMinWidth),
-          borderFocused: AppDimensions.borderFocused,
-          borderDefault: AppDimensions.borderDefault,
-          dividerThickness: AppDimensions.dividerThickness,
-          dividerSpace: AppDimensions.dividerSpace,
-          appBarOpacity: AppDimensions.appBarOpacity,
-          screenHorizontalPadding: 24.0,
-          cardHorizontalPadding: 20.0,
-          sectionSpacingV: 32.0,
-          contentMaxWidth: 720.0,
-          gridColumnCount: 2,
-        );
+    : this._(
+        radiusSmall:
+            AppDimensions.radiusSmall *
+            AppBreakpoints.scaleFactorOf(AppBreakpoints.tabletMinWidth),
+        radiusMedium:
+            AppDimensions.radiusMedium *
+            AppBreakpoints.scaleFactorOf(AppBreakpoints.tabletMinWidth),
+        radiusPill: AppDimensions.radiusPill,
+        elevationFlat: AppDimensions.elevationFlat,
+        buttonPaddingV:
+            AppDimensions.buttonPaddingV *
+            AppBreakpoints.scaleFactorOf(AppBreakpoints.tabletMinWidth),
+        buttonPaddingH:
+            AppDimensions.buttonPaddingH *
+            AppBreakpoints.scaleFactorOf(AppBreakpoints.tabletMinWidth),
+        inputPaddingV:
+            AppDimensions.inputPaddingV *
+            AppBreakpoints.scaleFactorOf(AppBreakpoints.tabletMinWidth),
+        inputPaddingH:
+            AppDimensions.inputPaddingH *
+            AppBreakpoints.scaleFactorOf(AppBreakpoints.tabletMinWidth),
+        borderFocused: AppDimensions.borderFocused,
+        borderDefault: AppDimensions.borderDefault,
+        dividerThickness: AppDimensions.dividerThickness,
+        dividerSpace: AppDimensions.dividerSpace,
+        appBarOpacity: AppDimensions.appBarOpacity,
+        screenHorizontalPadding: 24.0,
+        cardHorizontalPadding: 20.0,
+        sectionSpacingV: 32.0,
+        contentMaxWidth: 720.0,
+        gridColumnCount: 2,
+      );
 }

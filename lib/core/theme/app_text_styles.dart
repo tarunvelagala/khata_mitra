@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 /// AppTextStyles defines the typography hierarchy for KhataMitra.
-/// 
+///
 /// Uses system font throughout for maximum performance and compatibility,
 /// while maintaining the relative font weights and sizes from the design system.
 abstract class AppTextStyles {

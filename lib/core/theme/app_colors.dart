@@ -50,7 +50,7 @@ abstract class AppColors {
   static const Color darkPrimary = Color(0xFFA9C7FF);
   static const Color darkOnPrimary = Color(0xFF002204);
   static const Color darkPrimaryContainer = Color(0xFF00468C);
-  
+
   // Custom fixed colors from design system
   static const Color primaryFixed = Color(0xFFD6E3FF);
   static const Color primaryFixedDim = Color(0xFFA9C7FF);

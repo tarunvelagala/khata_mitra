@@ -72,9 +72,18 @@ void main() {
     const scale = 1.15;
 
     test('scales spatial tokens by 1.15', () {
-      expect(dims.radiusSmall, closeTo(AppDimensions.radiusSmall * scale, 0.001));
-      expect(dims.buttonPaddingV, closeTo(AppDimensions.buttonPaddingV * scale, 0.001));
-      expect(dims.inputPaddingH, closeTo(AppDimensions.inputPaddingH * scale, 0.001));
+      expect(
+        dims.radiusSmall,
+        closeTo(AppDimensions.radiusSmall * scale, 0.001),
+      );
+      expect(
+        dims.buttonPaddingV,
+        closeTo(AppDimensions.buttonPaddingV * scale, 0.001),
+      );
+      expect(
+        dims.inputPaddingH,
+        closeTo(AppDimensions.inputPaddingH * scale, 0.001),
+      );
     });
 
     test('does not scale optical constants', () {
@@ -99,7 +108,10 @@ void main() {
 
     test('font sizes match AppTextStyles exactly', () {
       expect(styles.displayLarge.fontSize, AppTextStyles.displayLarge.fontSize);
-      expect(styles.headlineMedium.fontSize, AppTextStyles.headlineMedium.fontSize);
+      expect(
+        styles.headlineMedium.fontSize,
+        AppTextStyles.headlineMedium.fontSize,
+      );
       expect(styles.bodyLarge.fontSize, AppTextStyles.bodyLarge.fontSize);
       expect(styles.labelSmall.fontSize, AppTextStyles.labelSmall.fontSize);
     });
@@ -121,13 +133,22 @@ void main() {
     });
 
     test('preserves font weights', () {
-      expect(styles.headlineLarge.fontWeight, AppTextStyles.headlineLarge.fontWeight);
+      expect(
+        styles.headlineLarge.fontWeight,
+        AppTextStyles.headlineLarge.fontWeight,
+      );
       expect(styles.labelSmall.fontWeight, AppTextStyles.labelSmall.fontWeight);
     });
 
     test('preserves letter spacing', () {
-      expect(styles.displayLarge.letterSpacing, AppTextStyles.displayLarge.letterSpacing);
-      expect(styles.labelSmall.letterSpacing, AppTextStyles.labelSmall.letterSpacing);
+      expect(
+        styles.displayLarge.letterSpacing,
+        AppTextStyles.displayLarge.letterSpacing,
+      );
+      expect(
+        styles.labelSmall.letterSpacing,
+        AppTextStyles.labelSmall.letterSpacing,
+      );
     });
   });
 
@@ -174,7 +195,9 @@ void main() {
     expect(captured, FormFactor.tablet);
   });
 
-  testWidgets('context.isMobile and isTablet are mutually exclusive', (tester) async {
+  testWidgets('context.isMobile and isTablet are mutually exclusive', (
+    tester,
+  ) async {
     late bool mobile, tablet;
     await tester.pumpWidget(
       buildTestApp(
@@ -242,12 +265,17 @@ void main() {
     );
 
     expect(mobileSize, AppTextStyles.bodyLarge.fontSize);
-    expect(tabletSize, closeTo(AppTextStyles.bodyLarge.fontSize! * 1.15, 0.001));
+    expect(
+      tabletSize,
+      closeTo(AppTextStyles.bodyLarge.fontSize! * 1.15, 0.001),
+    );
   });
 
   // ── ResponsiveLayoutBuilder ───────────────────────────────────────
 
-  testWidgets('ResponsiveLayoutBuilder renders mobile builder at 375dp', (tester) async {
+  testWidgets('ResponsiveLayoutBuilder renders mobile builder at 375dp', (
+    tester,
+  ) async {
     tester.view.physicalSize = const Size(375, 800);
     tester.view.devicePixelRatio = 1.0;
     addTearDown(tester.view.resetPhysicalSize);
@@ -265,7 +293,9 @@ void main() {
     expect(find.text('tablet-view'), findsNothing);
   });
 
-  testWidgets('ResponsiveLayoutBuilder renders tablet builder at 768dp', (tester) async {
+  testWidgets('ResponsiveLayoutBuilder renders tablet builder at 768dp', (
+    tester,
+  ) async {
     tester.view.physicalSize = const Size(768, 1024);
     tester.view.devicePixelRatio = 1.0;
     addTearDown(tester.view.resetPhysicalSize);
