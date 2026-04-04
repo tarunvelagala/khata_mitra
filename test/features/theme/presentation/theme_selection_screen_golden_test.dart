@@ -3,13 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:khata_mitra/features/theme/presentation/theme_selection_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
+  setUp(() {
+    SharedPreferences.setMockInitialValues({});
+  });
+
   group('ThemeSelectionScreen Golden Tests', () {
     Widget buildTestScreen(ThemeMode mode) {
-      final baseTheme = mode == ThemeMode.light 
-        ? ThemeData.light(useMaterial3: true) 
-        : ThemeData.dark(useMaterial3: true);
+      final baseTheme = mode == ThemeMode.light
+          ? ThemeData.light(useMaterial3: true)
+          : ThemeData.dark(useMaterial3: true);
       return ProviderScope(
         child: MaterialApp(
           theme: baseTheme,
@@ -29,12 +34,14 @@ void main() {
         children: [
           GoldenTestScenario(
             name: 'Light Mode - Mobile',
-            constraints: const BoxConstraints(minWidth: 390, maxWidth: 390, minHeight: 844, maxHeight: 844),
+            constraints: const BoxConstraints(
+                minWidth: 390, maxWidth: 390, minHeight: 844, maxHeight: 844),
             child: buildTestScreen(ThemeMode.light),
           ),
           GoldenTestScenario(
             name: 'Dark Mode - Mobile',
-            constraints: const BoxConstraints(minWidth: 390, maxWidth: 390, minHeight: 844, maxHeight: 844),
+            constraints: const BoxConstraints(
+                minWidth: 390, maxWidth: 390, minHeight: 844, maxHeight: 844),
             child: buildTestScreen(ThemeMode.dark),
           ),
         ],

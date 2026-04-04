@@ -9,17 +9,11 @@ class ThemeSelectionScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final themeMode = ref.watch(themeModeProvider);
-    final colorScheme = Theme.of(context).colorScheme;
-
-    // Design tokens matched to Stitch HTML:
-    // primary-fixed = #d6e3ff (light blue tint for selected bg & icon boxes)
-    // primary = #004d99 (dark navy for borders, button, icon color)
-    // on-surface = #1a1c1c (dark card icon background when unselected)
-    // surface-container-lowest = #ffffff (unselected card bg)
-    // surface = #f9f9f9 / background = #f2f3f5
+    final cs = Theme.of(context).colorScheme;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF2F3F5),
+      // Use scaffold bg — AppTheme sets this correctly for light/dark
       body: SafeArea(
         child: Stack(
           children: [
@@ -33,27 +27,28 @@ class ThemeSelectionScreen extends ConsumerWidget {
                     width: 80,
                     height: 80,
                     decoration: BoxDecoration(
-                      color: const Color(0xFFD6E3FF), // primary-fixed
+                      // primary-fixed: light blue in light mode, dim in dark
+                      color: cs.primaryContainer.withValues(alpha: isDark ? 0.3 : 1.0),
                       borderRadius: BorderRadius.circular(24),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withValues(alpha: 0.06),
+                          color: cs.shadow.withValues(alpha: 0.08),
                           blurRadius: 8,
                           offset: const Offset(0, 2),
                         ),
                       ],
                     ),
-                    child: const Icon(
+                    child: Icon(
                       Icons.menu_book,
                       size: 40,
-                      color: Color(0xFF004D99), // primary
+                      color: cs.primary,
                     ),
                   ),
                   const SizedBox(height: 16),
                   Text(
                     'KhataMitra',
                     style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                          color: const Color(0xFF004D99), // primary
+                          color: cs.primary,
                           fontWeight: FontWeight.w800,
                           letterSpacing: -0.5,
                         ),
@@ -62,7 +57,7 @@ class ThemeSelectionScreen extends ConsumerWidget {
                   Text(
                     'Choose your theme',
                     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                          color: colorScheme.onSurfaceVariant,
+                          color: cs.onSurfaceVariant,
                           fontWeight: FontWeight.w500,
                         ),
                   ),
@@ -75,10 +70,9 @@ class ThemeSelectionScreen extends ConsumerWidget {
                     icon: Icons.light_mode,
                     mode: ThemeMode.light,
                     currentMode: themeMode,
-                    // selected: bg=primary-fixed, icon-box=white
-                    // unselected: would be white card / primary-fixed icon box
-                    iconBoxColorSelected: Colors.white,
-                    iconBoxColorUnselected: const Color(0xFFD6E3FF),
+                    // Light card unselected icon: primary-fixed bg with primary icon
+                    unselectedIconBg: cs.primaryFixed,
+                    unselectedIconColor: cs.primary,
                     onTap: () => ref.read(themeModeProvider.notifier).setThemeMode(ThemeMode.light),
                   ),
                   const SizedBox(height: 16),
@@ -88,10 +82,9 @@ class ThemeSelectionScreen extends ConsumerWidget {
                     icon: Icons.dark_mode,
                     mode: ThemeMode.dark,
                     currentMode: themeMode,
-                    // Dark card: icon-box always uses on-surface (dark) with white icon
-                    iconBoxColorSelected: Colors.white,
-                    iconBoxColorUnselected: const Color(0xFF1A1C1C), // on-surface
-                    iconColorUnselected: Colors.white,
+                    // Dark card unselected icon: always dark bg with white icon
+                    unselectedIconBg: cs.onSurface,
+                    unselectedIconColor: cs.surface,
                     onTap: () => ref.read(themeModeProvider.notifier).setThemeMode(ThemeMode.dark),
                   ),
                   const SizedBox(height: 16),
@@ -101,9 +94,9 @@ class ThemeSelectionScreen extends ConsumerWidget {
                     icon: Icons.contrast,
                     mode: ThemeMode.system,
                     currentMode: themeMode,
-                    // System card: icon-box uses primary-fixed (light blue)
-                    iconBoxColorSelected: Colors.white,
-                    iconBoxColorUnselected: const Color(0xFFD6E3FF),
+                    // System card: primary-fixed bg with primary icon
+                    unselectedIconBg: cs.primaryFixed,
+                    unselectedIconColor: cs.primary,
                     onTap: () => ref.read(themeModeProvider.notifier).setThemeMode(ThemeMode.system),
                   ),
 
@@ -117,7 +110,7 @@ class ThemeSelectionScreen extends ConsumerWidget {
                           height: 128,
                           padding: const EdgeInsets.all(16),
                           decoration: BoxDecoration(
-                            color: Colors.white.withValues(alpha: 0.4),
+                            color: cs.surfaceContainerLowest.withValues(alpha: 0.6),
                             borderRadius: BorderRadius.circular(24),
                           ),
                           child: Column(
@@ -126,8 +119,8 @@ class ThemeSelectionScreen extends ConsumerWidget {
                               Container(
                                 width: 32,
                                 height: 32,
-                                decoration: const BoxDecoration(
-                                  color: Color(0xFFA0F399), // secondary-container
+                                decoration: BoxDecoration(
+                                  color: cs.secondaryContainer,
                                   shape: BoxShape.circle,
                                 ),
                               ),
@@ -137,7 +130,7 @@ class ThemeSelectionScreen extends ConsumerWidget {
                                 width: 64,
                                 margin: const EdgeInsets.only(bottom: 4),
                                 decoration: BoxDecoration(
-                                  color: const Color(0xFFC2C6D4).withValues(alpha: 0.3),
+                                  color: cs.outlineVariant.withValues(alpha: 0.3),
                                   borderRadius: BorderRadius.circular(99),
                                 ),
                               ),
@@ -145,7 +138,7 @@ class ThemeSelectionScreen extends ConsumerWidget {
                                 height: 8,
                                 width: 40,
                                 decoration: BoxDecoration(
-                                  color: const Color(0xFFC2C6D4).withValues(alpha: 0.3),
+                                  color: cs.outlineVariant.withValues(alpha: 0.3),
                                   borderRadius: BorderRadius.circular(99),
                                 ),
                               ),
@@ -158,13 +151,13 @@ class ThemeSelectionScreen extends ConsumerWidget {
                         child: Container(
                           height: 128,
                           decoration: BoxDecoration(
-                            color: Colors.white.withValues(alpha: 0.4),
+                            color: cs.surfaceContainerLowest.withValues(alpha: 0.6),
                             borderRadius: BorderRadius.circular(24),
                           ),
-                          child: const Icon(
+                          child: Icon(
                             Icons.brush_outlined,
                             size: 48,
-                            color: Color(0x66C2C6D4), // outline-variant / 40
+                            color: cs.outlineVariant.withValues(alpha: 0.5),
                           ),
                         ),
                       ),
@@ -179,27 +172,27 @@ class ThemeSelectionScreen extends ConsumerWidget {
               alignment: Alignment.bottomCenter,
               child: Container(
                 padding: const EdgeInsets.fromLTRB(24, 32, 24, 24),
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   gradient: LinearGradient(
                     begin: Alignment.bottomCenter,
                     end: Alignment.topCenter,
                     colors: [
-                      Color(0xFFF2F3F5),
-                      Color(0xE6F2F3F5),
-                      Colors.transparent,
+                      cs.surface,
+                      cs.surface.withValues(alpha: 0.9),
+                      cs.surface.withValues(alpha: 0.0),
                     ],
-                    stops: [0, 0.7, 1],
+                    stops: const [0, 0.6, 1],
                   ),
                 ),
                 child: ElevatedButton(
                   onPressed: () => context.go('/language'),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF004D99), // primary
-                    foregroundColor: Colors.white,
+                    backgroundColor: cs.primary,
+                    foregroundColor: cs.onPrimary,
                     minimumSize: const Size(double.infinity, 56),
                     shape: const StadiumBorder(),
                     elevation: 4,
-                    shadowColor: const Color(0xFF004D99).withValues(alpha: 0.3),
+                    shadowColor: cs.primary.withValues(alpha: 0.3),
                   ),
                   child: const Text(
                     'Continue',
@@ -221,9 +214,8 @@ class _ThemeCard extends StatelessWidget {
   final IconData icon;
   final ThemeMode mode;
   final ThemeMode currentMode;
-  final Color iconBoxColorSelected;
-  final Color iconBoxColorUnselected;
-  final Color? iconColorUnselected;
+  final Color unselectedIconBg;
+  final Color unselectedIconColor;
   final VoidCallback onTap;
 
   const _ThemeCard({
@@ -232,19 +224,19 @@ class _ThemeCard extends StatelessWidget {
     required this.icon,
     required this.mode,
     required this.currentMode,
-    required this.iconBoxColorSelected,
-    required this.iconBoxColorUnselected,
-    this.iconColorUnselected,
+    required this.unselectedIconBg,
+    required this.unselectedIconColor,
     required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     final isSelected = currentMode == mode;
-    const primaryFixed = Color(0xFFD6E3FF);
-    const primary = Color(0xFF004D99);
-    const onSurface = Color(0xFF1A1C1C);
-    const outlineVariant = Color(0xFFC2C6D4);
+    final cs = Theme.of(context).colorScheme;
+
+    // selected card bg = primaryFixed (light blue tint, always available in M3)
+    final selectedCardBg = cs.primaryFixed;
+    final unselectedCardBg = cs.surfaceContainerLowest;
 
     return InkWell(
       onTap: onTap,
@@ -254,10 +246,10 @@ class _ThemeCard extends StatelessWidget {
         curve: Curves.easeOut,
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: isSelected ? primaryFixed : Colors.white,
+          color: isSelected ? selectedCardBg : unselectedCardBg,
           borderRadius: BorderRadius.circular(24),
           border: Border.all(
-            color: isSelected ? primary : outlineVariant.withValues(alpha: 0.3),
+            color: isSelected ? cs.primary : cs.outlineVariant.withValues(alpha: 0.35),
             width: isSelected ? 2.0 : 1.5,
           ),
         ),
@@ -269,14 +261,14 @@ class _ThemeCard extends StatelessWidget {
               width: 40,
               height: 40,
               decoration: BoxDecoration(
-                color: isSelected ? iconBoxColorSelected : iconBoxColorUnselected,
+                // Selected: always white box to contrast with blue card bg
+                // Unselected: caller-specified color per mockup
+                color: isSelected ? Colors.white : unselectedIconBg,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Icon(
                 icon,
-                color: isSelected
-                    ? primary
-                    : (iconColorUnselected ?? primary),
+                color: isSelected ? cs.primary : unselectedIconColor,
                 size: 22,
               ),
             ),
@@ -290,26 +282,31 @@ class _ThemeCard extends StatelessWidget {
                     title,
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
                           fontWeight: FontWeight.bold,
-                          color: onSurface,
+                          color: cs.onSurface,
                         ),
                   ),
                   Text(
                     subtitle,
                     style: Theme.of(context).textTheme.bodySmall?.copyWith(
                           fontWeight: FontWeight.w500,
-                          color: const Color(0xFF424752), // on-surface-variant
+                          color: cs.onSurfaceVariant,
                         ),
                   ),
                 ],
               ),
             ),
             // Checkmark
-            if (isSelected)
-              const Icon(
-                Icons.check_circle,
-                color: primary,
-                size: 24,
-              ),
+            AnimatedSwitcher(
+              duration: const Duration(milliseconds: 200),
+              child: isSelected
+                  ? Icon(
+                      Icons.check_circle,
+                      key: const ValueKey('check'),
+                      color: cs.primary,
+                      size: 24,
+                    )
+                  : const SizedBox(key: ValueKey('empty'), width: 24, height: 24),
+            ),
           ],
         ),
       ),
