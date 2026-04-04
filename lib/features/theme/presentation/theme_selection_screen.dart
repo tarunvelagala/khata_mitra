@@ -13,7 +13,6 @@ class ThemeSelectionScreen extends ConsumerWidget {
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
-      // Use scaffold bg — AppTheme sets this correctly for light/dark
       body: SafeArea(
         child: Stack(
           children: [
@@ -27,7 +26,6 @@ class ThemeSelectionScreen extends ConsumerWidget {
                     width: 80,
                     height: 80,
                     decoration: BoxDecoration(
-                      // primary-fixed: light blue in light mode, dim in dark
                       color: cs.primaryContainer.withValues(alpha: isDark ? 0.3 : 1.0),
                       borderRadius: BorderRadius.circular(24),
                       boxShadow: [
@@ -70,9 +68,9 @@ class ThemeSelectionScreen extends ConsumerWidget {
                     icon: Icons.light_mode,
                     mode: ThemeMode.light,
                     currentMode: themeMode,
-                    // Light card unselected icon: primary-fixed bg, use onPrimaryFixed for contrast
+                    // Use onPrimaryFixedVariant for unselected icon color on primaryFixed bg
                     unselectedIconBg: cs.primaryFixed,
-                    unselectedIconColor: cs.onPrimaryFixed,
+                    unselectedIconColor: cs.onPrimaryFixedVariant,
                     onTap: () => ref.read(themeModeProvider.notifier).setThemeMode(ThemeMode.light),
                   ),
                   const SizedBox(height: 16),
@@ -82,9 +80,8 @@ class ThemeSelectionScreen extends ConsumerWidget {
                     icon: Icons.dark_mode,
                     mode: ThemeMode.dark,
                     currentMode: themeMode,
-                    // Dark card unselected icon: always dark bg with white icon
-                    unselectedIconBg: cs.onSurface,
-                    unselectedIconColor: cs.surface,
+                    unselectedIconBg: cs.inverseSurface,
+                    unselectedIconColor: cs.onInverseSurface,
                     onTap: () => ref.read(themeModeProvider.notifier).setThemeMode(ThemeMode.dark),
                   ),
                   const SizedBox(height: 16),
@@ -94,9 +91,8 @@ class ThemeSelectionScreen extends ConsumerWidget {
                     icon: Icons.contrast,
                     mode: ThemeMode.system,
                     currentMode: themeMode,
-                    // System card: primary-fixed bg, use onPrimaryFixed for contrast
                     unselectedIconBg: cs.primaryFixed,
-                    unselectedIconColor: cs.onPrimaryFixed,
+                    unselectedIconColor: cs.onPrimaryFixedVariant,
                     onTap: () => ref.read(themeModeProvider.notifier).setThemeMode(ThemeMode.system),
                   ),
 
@@ -234,8 +230,9 @@ class _ThemeCard extends StatelessWidget {
     final isSelected = currentMode == mode;
     final cs = Theme.of(context).colorScheme;
 
-    // selected card bg = primaryFixed (light blue tint, always available in M3)
-    final selectedCardBg = cs.primaryFixed;
+    // Selected: cs.primary bg (Dark Navy in light, Light Blue in dark)
+    // Unselected: standard surface
+    final selectedCardBg = cs.primary;
     final unselectedCardBg = cs.surfaceContainerLowest;
 
     return InkWell(
@@ -249,8 +246,7 @@ class _ThemeCard extends StatelessWidget {
           color: isSelected ? selectedCardBg : unselectedCardBg,
           borderRadius: BorderRadius.circular(24),
           border: Border.all(
-            // onPrimaryFixed gives correct contrast on the primaryFixed card bg in both modes
-            color: isSelected ? cs.onPrimaryFixed : cs.outlineVariant.withValues(alpha: 0.35),
+            color: isSelected ? cs.primary : cs.outlineVariant.withValues(alpha: 0.35),
             width: isSelected ? 2.0 : 1.5,
           ),
         ),
@@ -262,15 +258,14 @@ class _ThemeCard extends StatelessWidget {
               width: 40,
               height: 40,
               decoration: BoxDecoration(
-                // Selected: white box sits on primaryFixed card bg
-                // Unselected: caller-specified per mockup
+                // Selected: White box contrasts perfectly with the primary bg
                 color: isSelected ? Colors.white : unselectedIconBg,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Icon(
                 icon,
-                // Selected icon renders inside white box → use onPrimaryFixed for contrast
-                color: isSelected ? cs.onPrimaryFixed : unselectedIconColor,
+                // Selected icon: uses primary color inside white box
+                color: isSelected ? cs.primary : unselectedIconColor,
                 size: 22,
               ),
             ),
@@ -284,16 +279,17 @@ class _ThemeCard extends StatelessWidget {
                     title,
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
                           fontWeight: FontWeight.bold,
-                          // Selected card bg is primaryFixed → use onPrimaryFixed for readable text
-                          color: isSelected ? cs.onPrimaryFixed : cs.onSurface,
+                          // Selected uses onPrimary for guaranteed contrast
+                          color: isSelected ? cs.onPrimary : cs.onSurface,
                         ),
                   ),
                   Text(
                     subtitle,
                     style: Theme.of(context).textTheme.bodySmall?.copyWith(
                           fontWeight: FontWeight.w500,
-                          color: isSelected
-                              ? cs.onPrimaryFixed.withValues(alpha: 0.75)
+                          // Dimmed onPrimary for subtitle when selected
+                          color: isSelected 
+                              ? cs.onPrimary.withValues(alpha: 0.8) 
                               : cs.onSurfaceVariant,
                         ),
                   ),
@@ -307,7 +303,7 @@ class _ThemeCard extends StatelessWidget {
                   ? Icon(
                       Icons.check_circle,
                       key: const ValueKey('check'),
-                      color: cs.onPrimaryFixed,
+                      color: cs.onPrimary,
                       size: 24,
                     )
                   : const SizedBox(key: ValueKey('empty'), width: 24, height: 24),
