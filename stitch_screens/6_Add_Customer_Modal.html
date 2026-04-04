@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#a9c7ff",
+                        "primary-container": "#1565c0",
+                        "outline": "#727783",
+                        "on-primary-fixed": "#001b3d",
+                        "primary": "#004d99",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#e2e2e2",
+                        "surface-dim": "#dadada",
+                        "on-tertiary-fixed-variant": "#93000e",
+                        "on-secondary-fixed-variant": "#005312",
+                        "secondary": "#1b6d24",
+                        "tertiary-fixed-dim": "#ffb4ac",
+                        "on-primary-container": "#dae5ff",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#e8e8e8",
+                        "secondary-fixed": "#a3f69c",
+                        "inverse-on-surface": "#f1f1f1",
+                        "secondary-container": "#a0f399",
+                        "on-background": "#1a1c1c",
+                        "secondary-fixed-dim": "#88d982",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#217128",
+                        "inverse-surface": "#2f3131",
+                        "tertiary-container": "#c42627",
+                        "surface-tint": "#005db7",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#a00312",
+                        "on-tertiary-container": "#ffddd9",
+                        "on-surface-variant": "#424752",
+                        "surface-bright": "#f9f9f9",
+                        "outline-variant": "#c2c6d4",
+                        "on-secondary-fixed": "#002204",
+                        "primary-fixed": "#d6e3ff",
+                        "on-primary-fixed-variant": "#00468c",
+                        "on-surface": "#1a1c1c",
+                        "inverse-primary": "#a9c7ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#ffdad6",
+                        "surface-container-low": "#f3f3f3",
+                        "surface": "#f9f9f9",
+                        "surface-container-highest": "#e2e2e2",
+                        "background": "#f9f9f9",
+                        "on-tertiary-fixed": "#410003",
+                        "error": "#ba1a1a",
+                        "surface-container": "#eeeeee",
+                        "on-secondary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bottom-sheet-container {
+            height: 60vh;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#F2F3F5] font-body text-on-surface h-screen flex flex-col items-center justify-end">
+<!-- Top Navigation Anchor (Inactive on focused Task Sheet) -->
+<header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl flex items-center justify-between px-6 py-4">
+<h1 class="font-headline font-bold tracking-tight text-xl text-primary">The Digital Bahi Khata</h1>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="professional portrait of an Indian merchant wearing a clean button-down shirt, friendly expression, soft natural studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCp7C_2OCfGKGXZs_-lBdLicNTivQ97NSehOG_oWt3-z-r55_8y7d_uLiUHgjZjtzQO1CKGNdQpQomCixj_cbJ0l6xwW27cWpfvEMeDwOHqjDkxEuLvnswxESjE4zki9Cvbc2LWeWGQ84yzU2b70YikHaBTOoh6xD7KwNP-Wrov7yzDz92GXOrVXpMd4p94aVj5jWOPV4DUhUbe5hrxZWX51IlwThD4-ZuMaLHIi-D4aB7aNTZgqYfOyehavFmhWtIWzROSlC1sxZQ"/>
+</div>
+</header>
+<!-- Content Background Simulation -->
+<main class="w-full h-full px-6 pt-24 pb-12 overflow-y-auto">
+<div class="space-y-6">
+<div class="h-32 w-full bg-surface-container-lowest rounded-xl shadow-sm border-l-4 border-primary p-4 flex flex-col justify-center">
+<span class="text-on-surface-variant text-sm font-medium">Monthly Cash In</span>
+<span class="font-headline text-3xl font-extrabold text-secondary">₹1,42,000</span>
+</div>
+<div class="h-64 w-full bg-surface-container-lowest rounded-xl shadow-sm p-4">
+<div class="flex justify-between items-center mb-4">
+<h2 class="font-headline font-bold">Recent Ledger</h2>
+<span class="text-primary font-semibold text-sm">View All</span>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between py-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold">RK</div>
+<div>
+<p class="font-bold text-on-surface">Rajesh Kumar</p>
+<p class="text-xs text-on-surface-variant">2 mins ago</p>
+</div>
+</div>
+<span class="text-secondary font-bold">+₹500</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Backdrop Overlay -->
+<div class="fixed inset-0 bg-on-background/30 backdrop-blur-sm z-[55]"></div>
+<!-- Bottom Sheet -->
+<div class="fixed bottom-0 left-0 right-0 z-[60] bg-white rounded-t-[32px] bottom-sheet-container flex flex-col shadow-[0_-8px_40px_rgba(0,0,0,0.12)]">
+<!-- Handle -->
+<div class="flex justify-center py-3">
+<div class="w-8 h-1 rounded-full bg-outline-variant"></div>
+</div>
+<!-- Title Section -->
+<div class="px-6 pb-4">
+<div class="flex justify-between items-center">
+<h2 class="text-[18px] font-semibold text-on-surface font-headline">Add Customer</h2>
+<button class="p-2 -mr-2 text-on-surface-variant active:scale-90 transition-transform">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+</div>
+<!-- Divider -->
+<div class="h-[1px] w-full bg-outline-variant/30"></div>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto px-6 py-6 space-y-6">
+<!-- Customer Name Field -->
+<div class="space-y-2">
+<label class="text-sm font-semibold text-on-surface ml-4">Customer Name *</label>
+<div class="relative">
+<input class="w-full h-14 bg-surface-container px-6 rounded-full border-none focus:ring-2 focus:ring-primary text-on-surface placeholder:text-on-surface-variant" placeholder="Enter name" type="text" value="Rajesh Kumar"/>
+</div>
+</div>
+<!-- Warning Banner -->
+<div class="flex items-center gap-3 bg-amber-50 border border-amber-100 p-4 rounded-xl">
+<span class="material-symbols-outlined text-amber-700 text-sm">warning</span>
+<p class="text-sm font-medium text-amber-900">A customer with this name already exists</p>
+</div>
+<!-- Phone Number Field -->
+<div class="space-y-2">
+<label class="text-sm font-semibold text-on-surface ml-4">Phone Number (Optional)</label>
+<div class="flex items-center bg-surface-container rounded-full px-6 h-14">
+<span class="text-on-surface-variant font-medium pr-3 border-r border-outline-variant/30">+91</span>
+<input class="flex-1 bg-transparent border-none focus:ring-0 px-3 text-on-surface placeholder:text-on-surface-variant" placeholder="Mobile number" type="tel"/>
+</div>
+</div>
+<!-- Import Contact Button -->
+<div class="flex justify-start px-2">
+<button class="flex items-center gap-2 text-primary font-bold text-sm hover:underline">
+<span class="material-symbols-outlined text-sm">contact_page</span>
+                    Import from contacts
+                </button>
+</div>
+<!-- Save to Phonebook Toggle Row -->
+<div class="flex items-center justify-between p-4 bg-[#D6E4FF]/40 rounded-[12px] border border-primary-fixed-dim/20">
+<div class="flex items-start gap-3">
+<div class="mt-1">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">save</span>
+</div>
+<div>
+<p class="text-sm font-bold text-primary">Save to phonebook</p>
+<p class="text-xs text-on-surface-variant leading-tight">Enables WhatsApp reminders &amp; SMS</p>
+</div>
+</div>
+<!-- iOS Style Switch -->
+<div class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-primary transition-colors duration-200 ease-in-out focus:outline-none">
+<span class="translate-x-5 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span>
+</div>
+</div>
+</div>
+<!-- Sticky Primary Action -->
+<div class="p-6 pb-10 bg-white shadow-[0_-4px_20px_rgba(0,0,0,0.02)]">
+<button class="w-full h-14 bg-primary text-white rounded-full font-bold text-lg active:scale-[0.98] transition-all shadow-lg shadow-primary/20">
+                Save Customer
+            </button>
+<!-- iOS Home Indicator Safe Area Padding -->
+<div class="h-2"></div>
+</div>
+</div>
+</body></html>

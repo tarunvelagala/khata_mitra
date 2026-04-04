@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>KhataMitra - Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#1565c0",
+                    "on-tertiary-fixed": "#410003",
+                    "surface-bright": "#f9f9f9",
+                    "on-tertiary-container": "#ffddd9",
+                    "on-secondary-container": "#217128",
+                    "on-secondary-fixed-variant": "#005312",
+                    "inverse-on-surface": "#f1f1f1",
+                    "error": "#ba1a1a",
+                    "tertiary": "#a00312",
+                    "outline": "#727783",
+                    "surface-container-low": "#f3f3f3",
+                    "surface-container-highest": "#e2e2e2",
+                    "on-secondary-fixed": "#002204",
+                    "surface": "#f9f9f9",
+                    "on-primary-fixed": "#001b3d",
+                    "tertiary-container": "#c42627",
+                    "surface-variant": "#e2e2e2",
+                    "on-error-container": "#93000a",
+                    "on-surface": "#1a1c1c",
+                    "primary-fixed": "#d6e3ff",
+                    "surface-container-high": "#e8e8e8",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "primary-fixed-dim": "#a9c7ff",
+                    "on-primary-container": "#dae5ff",
+                    "on-primary-fixed-variant": "#00468c",
+                    "secondary-container": "#a0f399",
+                    "surface-tint": "#005db7",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#ffb4ac",
+                    "tertiary-fixed": "#ffdad6",
+                    "on-tertiary": "#ffffff",
+                    "surface-dim": "#dadada",
+                    "surface-container": "#eeeeee",
+                    "secondary-fixed": "#a3f69c",
+                    "background": "#f9f9f9",
+                    "inverse-primary": "#a9c7ff",
+                    "secondary-fixed-dim": "#88d982",
+                    "on-surface-variant": "#424752",
+                    "primary": "#004d99",
+                    "outline-variant": "#c2c6d4",
+                    "on-tertiary-fixed-variant": "#93000e",
+                    "on-error": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#1a1c1c",
+                    "secondary": "#1b6d24",
+                    "inverse-surface": "#2f3131"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F2F3F5; /* Specific light cool gray requested */
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .otp-input:focus {
+            outline: 2px solid #004d99;
+            background-color: #ffffff;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex flex-col min-h-screen text-on-surface selection:bg-primary-fixed antialiased">
+<!-- Top Area (40% height) -->
+<header class="flex flex-col items-center justify-center h-[353px] px-6 text-center">
+<!-- App Icon: Rounded square 80dp, indigo book icon -->
+<div class="w-20 h-20 bg-[#D6E4FF] rounded-2xl flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-[#004d99] text-5xl" data-icon="menu_book">menu_book</span>
+</div>
+<!-- Brand Content from JSON -->
+<h1 class="font-headline font-bold text-[22px] text-primary tracking-tight leading-tight">KhataMitra</h1>
+<p class="text-on-surface-variant text-[14px] mt-1 font-body">Apni dukaan, apna hisaab</p>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow px-6 pb-40">
+<div class="max-w-md mx-auto space-y-8">
+<!-- Phone Section (Read Only / Filled State) -->
+<section class="space-y-2">
+<div class="relative flex items-center bg-surface-container-high rounded-full px-5 py-3.5 border border-transparent">
+<div class="flex items-center gap-2 pr-3 mr-3 border-r border-outline-variant/30">
+<span class="text-[14px] font-bold text-primary">+91</span>
+</div>
+<span class="text-[15px] font-medium text-on-surface-variant">98765 43210</span>
+<div class="ml-auto">
+<span class="material-symbols-outlined text-on-surface-variant text-lg" data-icon="edit">edit</span>
+</div>
+</div>
+</section>
+<!-- OTP Section (Revealed State) -->
+<section class="space-y-6">
+<div class="space-y-1">
+<p class="text-[14px] text-on-surface-variant font-medium">
+                        Enter OTP sent to <span class="text-on-surface">+91 98765 43210</span>
+</p>
+</div>
+<!-- OTP Input Grid (6 digit boxes) -->
+<div class="flex justify-between items-center gap-2">
+<!-- Filled Digit 1 -->
+<div class="w-11 h-[52px] bg-surface-container-high rounded-xl flex items-center justify-center text-xl font-bold text-on-surface">4</div>
+<!-- Filled Digit 2 -->
+<div class="w-11 h-[52px] bg-surface-container-high rounded-xl flex items-center justify-center text-xl font-bold text-on-surface">7</div>
+<!-- Focused Digit 3 -->
+<div class="w-11 h-[52px] bg-surface-container-lowest rounded-xl flex items-center justify-center ring-2 ring-primary">
+<div class="w-[2px] h-6 bg-primary animate-pulse"></div>
+</div>
+<!-- Empty Digit 4 -->
+<div class="w-11 h-[52px] bg-surface-container-high rounded-xl"></div>
+<!-- Empty Digit 5 -->
+<div class="w-11 h-[52px] bg-surface-container-high rounded-xl"></div>
+<!-- Empty Digit 6 -->
+<div class="w-11 h-[52px] bg-surface-container-high rounded-xl"></div>
+</div>
+<!-- Resend Controls -->
+<div class="flex flex-col items-center gap-3 pt-2">
+<div class="flex items-center gap-2 text-on-surface-variant text-sm font-medium">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+<span>Resend in 4:42</span>
+</div>
+<button class="text-primary text-[14px] font-bold hover:opacity-80 transition-opacity">
+                        Resend OTP
+                    </button>
+</div>
+</section>
+</div>
+</main>
+<!-- Sticky Footer (From JSON Mapping) -->
+<footer class="fixed bottom-0 left-0 w-full z-50 flex flex-col items-center gap-4 px-8 pb-10 pt-6 bg-white shadow-[0_-4px_20px_rgba(0,0,0,0.05)] rounded-t-[32px]">
+<!-- Primary Action -->
+<button class="bg-[#004d99] text-white rounded-full px-8 py-4 font-bold w-full max-w-xs mx-auto block active:scale-[0.98] transition-transform flex items-center justify-center gap-2 h-12">
+            Verify
+        </button>
+<!-- Privacy Note -->
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[12px] text-secondary" data-icon="verified_user" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<p class="font-['Inter'] text-[11px] leading-relaxed text-center text-on-surface-variant">
+                We never share your data. By continuing, you agree to our Privacy Policy.
+            </p>
+</div>
+</footer>
+<!-- Safe Area Spacer for iOS/Modern Android Nav Bars -->
+<div class="h-[env(safe-area-inset-bottom)] bg-white w-full fixed bottom-0"></div>
+</body></html>

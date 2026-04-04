@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KhataMitra - My Catalog</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Noto+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary-container": "#dae5ff",
+                        "on-primary-fixed-variant": "#00468c",
+                        "secondary-container": "#a0f399",
+                        "surface-tint": "#005db7",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#ffb4ac",
+                        "tertiary-fixed": "#ffdad6",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#dadada",
+                        "surface-container": "#eeeeee",
+                        "secondary-fixed": "#a3f69c",
+                        "background": "#f9f9f9",
+                        "inverse-primary": "#a9c7ff",
+                        "secondary-fixed-dim": "#88d982",
+                        "on-surface-variant": "#424752",
+                        "primary": "#004d99",
+                        "outline-variant": "#c2c6d4",
+                        "on-tertiary-fixed-variant": "#93000e",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#1a1c1c",
+                        "secondary": "#1b6d24",
+                        "inverse-surface": "#2f3131",
+                        "primary-container": "#1565c0",
+                        "on-tertiary-fixed": "#410003",
+                        "surface-bright": "#f9f9f9",
+                        "on-tertiary-container": "#ffddd9",
+                        "on-secondary-container": "#217128",
+                        "on-secondary-fixed-variant": "#005312",
+                        "inverse-on-surface": "#f1f1f1",
+                        "error": "#ba1a1a",
+                        "tertiary": "#a00312",
+                        "outline": "#727783",
+                        "surface-container-low": "#f3f3f3",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-secondary-fixed": "#002204",
+                        "surface": "#f9f9f9",
+                        "on-primary-fixed": "#001b3d",
+                        "tertiary-container": "#c42627",
+                        "surface-variant": "#e2e2e2",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#1a1c1c",
+                        "primary-fixed": "#d6e3ff",
+                        "surface-container-high": "#e8e8e8",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#a9c7ff"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans", "Noto Sans"],
+                        "body": ["Inter", "Noto Sans"],
+                        "label": ["Inter", "Noto Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            background-color: #F2F3F5;
+        }
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4px; /* 4dp gaps */
+        }
+        .glass-overlay {
+            background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+            backdrop-filter: blur(2px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-background min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm dark:shadow-none flex items-center justify-between px-6 h-16 w-full">
+<button class="hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-colors p-2 rounded-full scale-95 active:opacity-80 transition-transform">
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400">menu</span>
+</button>
+<h1 class="font-plus-jakarta font-bold text-xl text-blue-900 dark:text-blue-100 tracking-tight">My Catalog</h1>
+<button class="hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-colors p-2 rounded-full scale-95 active:opacity-80 transition-transform">
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400">select_all</span>
+</button>
+</header>
+<main class="pt-20 px-4">
+<!-- Capacity Bar Section -->
+<div class="mb-6">
+<div class="flex justify-between items-center mb-1.5">
+<span class="text-xs font-medium text-outline">12 of 50 images used</span>
+<span class="text-[10px] font-bold text-primary uppercase tracking-tighter">24% Full</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[24%] rounded-full"></div>
+</div>
+</div>
+<!-- Catalog Grid -->
+<div class="catalog-grid">
+<!-- Selected Item 1 -->
+<div class="relative aspect-square rounded-[12px] overflow-hidden group border-2 border-primary ring-2 ring-primary/20">
+<img alt="premium basmati rice" class="w-full h-full object-cover" data-alt="Close-up of premium long-grain basmati rice in a burlap sack with traditional wooden scoop, warm kitchen lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAD3s0VaMTWcQx96Uy_tcWy0QD0oa9_wQcNeNTVa_U8Wxt-NPobTdjE0oraV1icmkTGHXGow0owfg8fW01az2CG3WZoiD4dn1_T0qIfNoxSp1Qd4DSN9uQzezkMcSnmUOadnxKYDzT-Yrz1lC3PWcL94qztIgb1dC22okP5Ri81TH2CsZ6RXFEtH63ACLMkcZOWHOLBneIbDZ-ReUXeNJOlkBq9_OarbSzRM7G0kCDt2yIN4FSyw5efy0YzrS073_lHY0L8yc8F3CQ"/>
+<div class="absolute inset-0 glass-overlay flex items-end p-2">
+<span class="text-white text-[10px] font-medium truncate">Basmati Rice</span>
+</div>
+<div class="absolute top-1.5 right-1.5">
+<div class="bg-primary text-white w-5 h-5 rounded-full flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-[14px] font-bold" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="relative aspect-square rounded-[12px] overflow-hidden group">
+<img alt="yellow moong dal" class="w-full h-full object-cover" data-alt="Vibrant yellow moong dal lentils in a ceramic bowl, sharp focus, natural daylight, professional food photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeRuXOmDVrUn5wiHK2ut3chWlQRcXsjc0nDvvmpKtzAk1NrkHlDWrmWr48GMjiC_ez_7fuO997_hbVzPul6mNOhh6v1zurAXLxz4fiTLBYLDDQuACF3VQU7N5ZuoG_Y1QhrU5_2m45VNx7NGd6G4QXYkSsd2KiYQ1Y49k4q8LwMBifDpaErdeGajKWwB6Td7yA8mZEFCeLBkQqxtDHlxtK2UF-9SK9XsV9PjiyfkB_FxsKgBDxaJIufEeeKeIN0I-X71DjrMWr13M"/>
+<div class="absolute inset-0 glass-overlay flex items-end p-2">
+<span class="text-white text-[10px] font-medium truncate">Moong Dal</span>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="relative aspect-square rounded-[12px] overflow-hidden group">
+<img alt="indian spices" class="w-full h-full object-cover" data-alt="Colorful array of whole Indian spices like turmeric, cardamom, and chili on a dark stone surface, overhead view" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMKHuO48Ff-3jFnPdzq2o-3IY275Hi1iBW6kCw7iHwHY7XsvHF2rX55MfGAlJlHlvzp87tzRgBOiSKFlXOBzjMMqU26yQI_CdHj3ZzSTsS-ZCHBmJtyFRgHr3axP5wCUwg_Wu16X4DYa5dbFnfy9kI2UAuvZ3yavpsza1h-_I6jz_-4L_dzbOsVvG2Ld5wzMnXTP2J3K4AuZFZ5zVEOIsYUcSMFTfMcui6QI259H0RgiqyU4Vrlz9zTYjMOA3cv5MejXMVyrs3z4s"/>
+<div class="absolute inset-0 glass-overlay flex items-end p-2">
+<span class="text-white text-[10px] font-medium truncate">Turmeric</span>
+</div>
+</div>
+<!-- Selected Item 4 -->
+<div class="relative aspect-square rounded-[12px] overflow-hidden group border-2 border-primary ring-2 ring-primary/20">
+<img alt="wheat flour" class="w-full h-full object-cover" data-alt="Fine whole wheat flour in a traditional metallic container with grains of wheat scattered around, warm earthy tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhxoefJp1CXKzHucW-ZAfIv9qB_gw5QMrbtVy_6_kvZ5Bky4QDpNFnFpq1GJ_JZD9goSXI9ys5s5UIUnby3vnCa7WoMM1c0wjzVrGEsg7l8xOT2QqcX2hhAWKeMeGH6OvAH5GBZp-Bb9uIy_7iSrod8EKQqYxtV5uCBUZDt0vys8SAVyo8KFwzMMos_6jYKN6WvMu_RrcZpyvY0OcT4tUA64c7UUDgCNLGu8naTwgCnwMxTRc44d7vi_REOgDXxYa6JT8VV1jxANw"/>
+<div class="absolute inset-0 glass-overlay flex items-end p-2">
+<span class="text-white text-[10px] font-medium truncate">Wheat Flour</span>
+</div>
+<div class="absolute top-1.5 right-1.5">
+<div class="bg-primary text-white w-5 h-5 rounded-full flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-[14px] font-bold" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+</div>
+</div>
+<!-- Item 5 -->
+<div class="relative aspect-square rounded-[12px] overflow-hidden group">
+<img alt="desi ghee" class="w-full h-full object-cover" data-alt="Pure golden desi ghee in a traditional glass jar with a wooden spoon, soft focus background of a clean kitchen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk5Qyq_U-nv4-Ej4jBEFIJpGuKd1H9F7Gx5mfcIx1hAbLrltIXorDgpTs1WpxvIJ9hiE7IdukjWHJlPxvkr5r1tG4lIwEslYsrVxqVYgLsWCzpdXx-ussjkqZsc3VoekObQW1FT8cVdcPZ6jFae90GPSdIlTaF9-n3u01i3dihIV9ILPaClNV2oNqrv3U6ccjkOzgpuolBghDkLc-qTA0B9hwdQdbB27h5tb0jXHSRqCKpnRmygm3bVUnnPw1jjIONQ0aFwt6OIbU"/>
+<div class="absolute inset-0 glass-overlay flex items-end p-2">
+<span class="text-white text-[10px] font-medium truncate">Desi Ghee</span>
+</div>
+</div>
+<!-- Item 6 -->
+<div class="relative aspect-square rounded-[12px] overflow-hidden group">
+<img alt="assam tea" class="w-full h-full object-cover" data-alt="Loose leaf Assam tea in a wooden box, some dried leaves scattered, moody lighting, professional product shot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmVUG1gP17ge-f7Vekef6yj-R8SgPL-EIKfYIEkw6UO5Be4e2hbNIv_FV1lQH_a2RPhoQWSQelueojG__Ho3m31TlOChx3vAbkkF-9w8sOi_Nr_zfo7Ad2Tzekm1LelZuEQzaYM8Y4_ZxYXDG3SIOLNjmzHi6NfEZyexQPrJ8Ct2KCRRGvAe_o3hAhs7LVKWEGjxNEiJdV_MDazWzDfF6DtXvYpm3sJZJUIIZc8II6OPJbbThlWQwXRD90dWFRNA-wNyFYCyK08VE"/>
+<div class="absolute inset-0 glass-overlay flex items-end p-2">
+<span class="text-white text-[10px] font-medium truncate">Assam Tea</span>
+</div>
+</div>
+<!-- Item 7 -->
+<div class="relative aspect-square rounded-[12px] overflow-hidden group">
+<img alt="raw almonds" class="w-full h-full object-cover" data-alt="High-quality raw almonds in a bowl, crisp texture, soft side lighting, professional health food photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAG35wLhhfvhHWKtJ66nNW4cf1_UMX6JD1X-YrT4EnwCqjDKfB2PrP86Nk4YOXJg99013HZzVptUFpztZoINNqYS-6Z-CB_bU0VEUQoxYq2sjIJwI1TJXE4aX1Z9A8Ay2bmQ8iQSRNk5dn7lztFyLXhjmmP2Q037xp1_PV3y3TFBM1hx_4tIEcFxgxgHxNvXRc5PBWU0zbHek5EWg5tdIVA7_q9_mgJsVZtX2uLzX9RE5Hc5BJZ0yDC1nlPW3KLeROyG-nuJrkUjZQ"/>
+<div class="absolute inset-0 glass-overlay flex items-end p-2">
+<span class="text-white text-[10px] font-medium truncate">Almonds</span>
+</div>
+</div>
+<!-- Item 8 -->
+<div class="relative aspect-square rounded-[12px] overflow-hidden group">
+<img alt="rock salt" class="w-full h-full object-cover" data-alt="Crystals of Himalayan pink salt on a dark rustic surface, macro photography, dramatic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5imO5AmS2CnX6vMW0UYw8e4X4jXHn_sdxm9y_BKx7Qn5DEI310VX5mWjNLrCnQWDzxK7pX1LuQkjpfsbmX5Y6Qlksc6mDE0DL3o2OFlULoXI3_w5xzrwzbQXVb6_o78sIDUlB5Cif_JCaF6FFzU6wdNG33sgoxAHvz0Fiqe1xNZqVzF-7zPjJCCDdmLBmU-09vGecGKDswc4AsxCppJcIbHiA4fcI05lHXxMcZZKvmO_7bGax3YXP9odaMdXDcxnsQpqnOEmSi9U"/>
+<div class="absolute inset-0 glass-overlay flex items-end p-2">
+<span class="text-white text-[10px] font-medium truncate">Rock Salt</span>
+</div>
+</div>
+<!-- Item 9 -->
+<div class="relative aspect-square rounded-[12px] overflow-hidden group">
+<img alt="refined sugar" class="w-full h-full object-cover" data-alt="Pure white crystalline sugar in a glass bowl, bright high-key lighting, clean minimalist aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcahNIZQurEwMo8QuTJYuIixERN8PKk3OcPyWcyWNIKYVPMcKJk5WLqX6K3_N8Hz2iZMKVcbtlL_nfYHKQHT1EToZ3wphhokTKSFVSz5J2ICTla4Z5nE7NN2Fiu1Pk0hHNfZaAbZHGNab2x-PxkfFqYq5GNJOiRAblKUKEZZGSWoY8EKErnJj2H1lAyIkj4V5LylG3yCd6NBB13iqEnIQrrljto_BcdquaxZjT6eOlX1-VrNrtnvoPGnUM150gqILcPPg9dNOjDxI"/>
+<div class="absolute inset-0 glass-overlay flex items-end p-2">
+<span class="text-white text-[10px] font-medium truncate">Sugar</span>
+</div>
+</div>
+<!-- Item 10 -->
+<div class="relative aspect-square rounded-[12px] overflow-hidden group">
+<img alt="mustard oil" class="w-full h-full object-cover" data-alt="Golden mustard oil in a clear bottle, light shining through the liquid, professional grocery photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKiYk-n09iSQiq3PY4QcqK1G6_IjRMOhjvLiWp9NtpOhTnLV8Cx75aNRiJC5CuSTQ-qgNwpFCCJmuCRutvcRSrllakHniEABtijpYYD5WUNO8fJ9dLtPxGOh_vmSNtIF94x7mWL57eCr0QXdvPmO47V_0oo42cn12mll0RNNGE4xJQRJ0ozBb--4BmszJK-7sPPcjjjBaFGoMrCwTeF_Wqtw6cPrrO6Ja2yu0Boke4wx4BteC07ISfaMUFkwwgWTPiWkOCgtzoIrc"/>
+<div class="absolute inset-0 glass-overlay flex items-end p-2">
+<span class="text-white text-[10px] font-medium truncate">Mustard Oil</span>
+</div>
+</div>
+<!-- Item 11 -->
+<div class="relative aspect-square rounded-[12px] overflow-hidden group">
+<img alt="pure honey" class="w-full h-full object-cover" data-alt="Thick pure honey dripping from a wooden honey dipper, golden warm backlight, appetizing look" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_m39FmyCRmCfjjq1ku7pCyECgkx-3Lm6g57STuYS8xLD1DLokYU-gYvSpHGTJPYSq7R3TjVxFHjZ0lycUezJURORO83hIGVshNI2bnwg0fXHA5SmnsRkUosCdVDG876cGjsa3ePDV3dpNgCq8E2grIfaGWsKHUARDeoJIkOt0ZO8Ardo6xSLOL8M0PwpMejdG1CTtkQUmlhWyRgOPBRYQyEMuTYHEJURHuLHTiuMs70K9WiSgCqiZk8zRCEHFyRWsuqLKLBczbUg"/>
+<div class="absolute inset-0 glass-overlay flex items-end p-2">
+<span class="text-white text-[10px] font-medium truncate">Honey</span>
+</div>
+</div>
+<!-- Item 12 -->
+<div class="relative aspect-square rounded-[12px] overflow-hidden group">
+<img alt="garam masala" class="w-full h-full object-cover" data-alt="Powdered brown garam masala in a small bowl, rich texture, professional spice photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZ8q-LK78cNP92B8yStOr29L5vqT7vC2zl4TeFYX5-fP2QuWqGfdADstr2Lmre4GrLCyVCRaBoeXkYvpxoESwIHge7iC3LPTTW3C4woHALlysDyv-19iI6CD2FBgHaP-xig4MvCLu4B4MAbcSijJr-v1BIJ6L_3BZiag9s9QIuUWhlCLU97o1PWWBtSpB8125-JvCkbZ7mZ3yRegQztdhbY_kKmuO5GonRlJUKhJt4GKiRaHuJVto9fxoyoBzU2SL-csISYj6DtOw"/>
+<div class="absolute inset-0 glass-overlay flex items-end p-2">
+<span class="text-white text-[10px] font-medium truncate">Garam Masala</span>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB -->
+<div class="fixed bottom-[88px] left-1/2 -translate-x-1/2 z-50">
+<button class="w-14 h-14 bg-primary text-white rounded-full shadow-lg flex items-center justify-center hover:bg-primary-container active:scale-90 transition-all">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</div>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-40 bg-white dark:bg-slate-900 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] flex justify-around items-center px-4 pt-3 pb-6 rounded-t-3xl border-t border-slate-100 dark:border-slate-800">
+<!-- Dashboard -->
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-1.5 hover:text-blue-600 dark:hover:text-blue-300 tap-highlight-none active:scale-90 transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-inter text-[11px] font-semibold uppercase tracking-wider mt-1">Dashboard</span>
+</a>
+<!-- Catalog (Active) -->
+<a class="flex flex-col items-center justify-center bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-200 rounded-2xl px-5 py-1.5 tap-highlight-none active:scale-90 transition-all" href="#">
+<span class="material-symbols-outlined fill-icon" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span class="font-inter text-[11px] font-semibold uppercase tracking-wider mt-1">Catalog</span>
+</a>
+<!-- Settings -->
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-1.5 hover:text-blue-600 dark:hover:text-blue-300 tap-highlight-none active:scale-90 transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-inter text-[11px] font-semibold uppercase tracking-wider mt-1">Settings</span>
+</a>
+</nav>
+</body></html>

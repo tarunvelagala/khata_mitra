@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-background": "#1a1c1c",
+            "error": "#ba1a1a",
+            "surface-container-lowest": "#ffffff",
+            "primary": "#004d99",
+            "surface-container": "#eeeeee",
+            "on-tertiary": "#ffffff",
+            "surface-variant": "#e2e2e2",
+            "on-primary-fixed": "#001b3d",
+            "on-tertiary-fixed": "#410003",
+            "on-tertiary-container": "#ffddd9",
+            "outline": "#727783",
+            "tertiary-container": "#c42627",
+            "primary-fixed-dim": "#a9c7ff",
+            "on-primary-container": "#dae5ff",
+            "inverse-on-surface": "#f1f1f1",
+            "background": "#f9f9f9",
+            "primary-fixed": "#d6e3ff",
+            "on-error-container": "#93000a",
+            "on-primary": "#ffffff",
+            "surface": "#f9f9f9",
+            "on-surface": "#1a1c1c",
+            "on-secondary": "#ffffff",
+            "secondary-fixed-dim": "#88d982",
+            "surface-tint": "#005db7",
+            "secondary": "#1b6d24",
+            "tertiary": "#a00312",
+            "outline-variant": "#c2c6d4",
+            "surface-dim": "#dadada",
+            "surface-container-highest": "#e2e2e2",
+            "on-surface-variant": "#424752",
+            "on-tertiary-fixed-variant": "#93000e",
+            "on-error": "#ffffff",
+            "error-container": "#ffdad6",
+            "secondary-fixed": "#a3f69c",
+            "primary-container": "#1565c0",
+            "on-secondary-fixed": "#002204",
+            "tertiary-fixed": "#ffdad6",
+            "surface-container-high": "#e8e8e8",
+            "surface-bright": "#f9f9f9",
+            "on-secondary-fixed-variant": "#005312",
+            "on-primary-fixed-variant": "#00468c",
+            "secondary-container": "#a0f399",
+            "inverse-primary": "#a9c7ff",
+            "on-secondary-container": "#217128",
+            "tertiary-fixed-dim": "#ffb4ac",
+            "surface-container-low": "#f3f3f3",
+            "inverse-surface": "#2f3131"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline": ["Plus Jakarta Sans"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      vertical-align: middle;
+    }
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .ios-safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+    .ios-safe-top { padding-top: env(safe-area-inset-top); }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#F2F3F5] text-on-surface min-h-screen flex flex-col">
+<!-- TopAppBar Component (from JSON guidance) -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-xl ios-safe-top">
+<div class="flex items-center justify-between px-4 h-16 w-full">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 duration-150 text-blue-800 p-2 rounded-full hover:bg-zinc-100 transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-['Plus_Jakarta_Sans'] font-bold text-lg tracking-tight text-blue-800">Send Reminder</h1>
+</div>
+<button class="active:scale-95 duration-150 text-blue-800 p-2 rounded-full hover:bg-zinc-100 transition-colors">
+<span class="material-symbols-outlined">bookmark</span>
+</button>
+</div>
+<div class="bg-zinc-100 h-px"></div>
+</header>
+<main class="mt-16 flex-1 pb-48">
+<!-- Context Bar -->
+<section class="bg-primary px-6 py-4 flex items-center justify-between shadow-md">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-fixed-dim flex items-center justify-center text-primary font-bold">RK</div>
+<p class="text-white font-medium text-lg">To: <span class="font-bold">Ramesh Kumar</span></p>
+</div>
+<p class="text-white font-bold text-xl">₹6,450</p>
+</section>
+<div class="px-4 py-6 space-y-6">
+<!-- Message Block -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm border-0">
+<div class="flex justify-between items-center mb-4">
+<span class="text-on-surface-variant font-bold tracking-widest text-xs uppercase">MESSAGE</span>
+<button class="text-primary active:scale-90 transition-transform">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+<div class="bg-surface-container-low p-4 rounded-lg">
+<p class="text-on-surface leading-relaxed text-md">
+            Hello <span class="font-bold text-primary">Ramesh ji</span>, your outstanding balance is <span class="font-bold text-primary">₹6,450</span>. Please clear when convenient. — <span class="font-semibold text-primary">Raju Kirana Store</span>
+</p>
+</div>
+</div>
+<!-- Visiting Card Block -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm border-0">
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-on-surface font-bold text-base">Visiting Card</h2>
+<!-- Material 3 Switch -->
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-12 h-7 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[4px] after:start-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Visiting Card Preview -->
+<div class="w-full h-40 bg-gradient-to-br from-primary to-primary-container rounded-xl flex flex-col justify-center items-center text-center p-6 relative overflow-hidden shadow-lg">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-8xl" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+</div>
+<h3 class="text-white font-extrabold text-2xl tracking-tight mb-1">Raju Kirana Store</h3>
+<p class="text-blue-100 text-sm font-medium">Wholesale &amp; Retail Groceries</p>
+<div class="mt-4 flex gap-2">
+<span class="text-white/80 material-symbols-outlined text-sm">call</span>
+<span class="text-white/80 text-xs">+91 98765 43210</span>
+</div>
+</div>
+</div>
+<!-- Product Images Block -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm border-0">
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-on-surface font-bold text-base">Product Images</h2>
+<button class="bg-primary-fixed text-on-primary-fixed px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm">add</span> Add
+          </button>
+</div>
+<div class="flex overflow-x-auto gap-3 pb-2 no-scrollbar">
+<!-- Thumbnails -->
+<div class="relative flex-shrink-0">
+<img class="w-20 h-20 rounded-lg object-cover bg-zinc-200" data-alt="close up of fresh red lentils and Indian spices in small jute sacks with vibrant colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOrio4IyCZhqIaaHR6_nYQnvSJMCQnfTt5J1wkke1IPlxP-vR3taIbfoN8m3jTrLxER-jCidUftvebDF2X51m3CS-9YBQwWEetZh0iXPTcCY3uybE7idJhHilqiUAsQi7S3tL9CK1-pzFt8cIbRf2IaOw2TV0JGd1X439Hm_zlhqwEGliq3n-SHj_W5AeP8HxDV4JneDXWrNZEiHCXiDXQJhZhKJOHgYULqNO76F4XloQT-HO8BMoNu3X8pFGwjIM2B1JYWGIJ-hg"/>
+<button class="absolute -top-1 -right-1 bg-error text-white rounded-full p-0.5 shadow-md">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+</div>
+<div class="relative flex-shrink-0">
+<img class="w-20 h-20 rounded-lg object-cover bg-zinc-200" data-alt="packaged blocks of high quality paneer cheese on a wooden cutting board with herbs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-RPsmxWd0KX3pirEcXHjTUV0pFRe1CrJkHPC4JbnqcFqRxS2inxtjgMc0vm5qEItS0ykoHOakb7VotnPBm0cp4FRQ7xMWyFcEJXkmN3a4BTy4TKsjXalkp9KJGKyabFFsQ4pc2uV85ao8mdFyuiyfuaUAouDaq3JH3IA6TvxWxpiyZS53HflEpR3e7QaLtVmkqPORufSRjJASzcJtIPLTQTXBn_XTG8OR-SYWoosm5QMpQxalR07AE-SABdlTosdypnQBs8uMYsg"/>
+<button class="absolute -top-1 -right-1 bg-error text-white rounded-full p-0.5 shadow-md">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+</div>
+<div class="relative flex-shrink-0">
+<img class="w-20 h-20 rounded-lg object-cover bg-zinc-200" data-alt="heaping bowl of premium basmati rice in a rustic ceramic bowl against a clean background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAynpMWFTNQ8dI6DD99izYEKpMAyeaqcEq2eAG__bKPTf9q2W6PaeCTAEQ0R0rB6GHhMEligxj6_TKqFD40UYdG6PBTd_EkSzy8TzJCcQjfP-rbJzkhULrzccvlKQE_ev_PF7eY6Q5Tb24TS-3w7c-RgRzKIIpZsTvbanJmW-QyenmrpoUqqKu6UbQF1_F1dbXz0LYMI4zvZDJV5jMRSLTaNCmIxCWZL_3rP_bNcjgAswRJEyTM6arq1dirUSuA-SM8Cu3NMmYLKwk"/>
+<button class="absolute -top-1 -right-1 bg-error text-white rounded-full p-0.5 shadow-md">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+</div>
+<!-- Empty State Add Slot -->
+<div class="w-20 h-20 rounded-lg border-2 border-dashed border-outline-variant flex items-center justify-center bg-surface-container-low text-outline-variant flex-shrink-0">
+<span class="material-symbols-outlined">image</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Sticky Footer -->
+<footer class="fixed bottom-0 left-0 w-full bg-white shadow-[0_-4px_20px_0_rgba(0,0,0,0.05)] ios-safe-bottom">
+<div class="px-6 py-4 flex flex-col gap-3">
+<!-- WhatsApp Pill -->
+<button class="w-full bg-secondary text-white font-bold py-4 rounded-full flex items-center justify-center gap-2 active:scale-[0.98] transition-transform shadow-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">send</span>
+        Send via WhatsApp
+      </button>
+<!-- SMS Pill -->
+<button class="w-full border-2 border-primary text-primary font-bold py-4 rounded-full flex items-center justify-center gap-2 active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined">chat</span>
+        Send via SMS
+      </button>
+<button class="text-on-surface-variant font-medium text-sm py-2 hover:text-primary transition-colors flex items-center justify-center gap-1">
+        Other apps... <span class="material-symbols-outlined text-base">open_in_new</span>
+</button>
+</div>
+</footer>
+</body></html>

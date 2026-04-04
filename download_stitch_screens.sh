@@ -1,0 +1,53 @@
+#!/bin/bash
+mkdir -p stitch_screens
+cd stitch_screens
+
+echo "Downloading Screen 1..."
+curl -s -L "https://lh3.googleusercontent.com/aida/ADBb0ugaXeAHlqgdCsZMMcKf2jeHmEd17wM_x6jrFcDZ-A2ZmP2Z9Mt4s1tYzddt-hDDTESHA_K9k4a2Ae5coHemDUG_mLB1osryydwHGLLOehWAONhlB4TEi0t2IFFNU-5e9q3lXZw8dQ-Ehgj0w2RanEOuzXBDRMOEX3kYQMr-2uP7RZfklgBiLVK9qtcFbrC0HTpzd6XRDQ8UzJwujnlBcgaKxuJYnEV1sb2hgkiOv6dPqixcOItTmjMMk1Q" -o "1_My_Catalog.png"
+curl -s -L "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzBlYjJhYzNkMjE4ODRhNGE4ZTI2ZGFkY2U5MzMxZmY0EgsSBxCyidzrwAoYAZIBIwoKcHJvamVjdF9pZBIVQhMzODIzMDIwMjA0MzEwOTM3NTQ0&filename=&opi=89354086" -o "1_My_Catalog.html"
+
+echo "Downloading Screen 2..."
+curl -s -L "https://lh3.googleusercontent.com/aida/ADBb0uiEdof_dY4uFE-6AL-aHKsJxo8h7XH2dIfZLpHw7AvF6R-erk1PB28md_bjwy6ogSpKb4a0fKzAll5mAoHZlUYmRz_CMDZ6Sbfg5FErLU4igprlfE311KgW-vazP0ZKiN4JBIhDQo7INaqIZidM7y6zMgKPMQ9ZZGM9Invy-PYFElROmHCSgIRMKMHhPDwHTHSq8ohsCdHADTmT3ba0Gz-0CClV6GdLQlb_qjMJoYGguRp65094_DdyO2I" -o "2_Settings.png"
+curl -s -L "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sX2ZiMTJhYWEzYzA1MTQ1MDY5ZDRiYmI2ODhkZTBjOTlmEgsSBxCyidzrwAoYAZIBIwoKcHJvamVjdF9pZBIVQhMzODIzMDIwMjA0MzEwOTM3NTQ0&filename=&opi=89354086" -o "2_Settings.html"
+
+echo "Downloading Screen 3..."
+curl -s -L "https://lh3.googleusercontent.com/aida/ADBb0uhaXpclpa8O5d3zl4s2LEKaZmv-GXaOt4IasIcwxU7jLq4s8-_xBZcJt5yeROgsEWevE-yK1-jPxGeK2n57lXIw7Nz7ucHZ3vfwtmPoJL8YD95iieCMvBhlXfGN3r0gK92iLDIzHMETQJ27hx85cpNQkxJtFzph6AzeH38dLBt4d4Hz_fm4gw0hU3hjs9Ia_KWXfVc3D0qsPzoM-J2BJE0bl9jxTzxpqeGDT7n51g6OlANkEdAzbvbo9eU" -o "3_Reminder_Composer.png"
+curl -s -L "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sX2ViMzU5MDdiOTU3MTQ3NzJiMjA2ZTViYmE1NThmNjRhEgsSBxCyidzrwAoYAZIBIwoKcHJvamVjdF9pZBIVQhMzODIzMDIwMjA0MzEwOTM3NTQ0&filename=&opi=89354086" -o "3_Reminder_Composer.html"
+
+echo "Downloading Screen 4..."
+curl -s -L "https://lh3.googleusercontent.com/aida/ADBb0uip4FCFwr-ssFvvbgRpWAU4iaz6_X4aVAMsaJcVNkm98HINm9XTkjAZj-OUypYvUqkSpT06ULShq3kNkSlEDZEnox3dsftvMFhUmvw10MvGlUN2kI00Wdlw8i6rfzoWBajUMMFsWlFIRaZ8kScmxMTr48vZnejrD2QLH4H2tDBQKfucaX1sIOWyrxOlSiRbn5FzIWx3Z94tnGgxaLxoVRogG8qUY0jPAKZk1iPJWAVn84ea0XZt3vB7XTM" -o "4_Record_Payment_Sheet.png"
+curl -s -L "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzRkYjk5YmMxYzNmNjQ4NTFhNDNkOTMzMGU3OTY5ZTQ2EgsSBxCyidzrwAoYAZIBIwoKcHJvamVjdF9pZBIVQhMzODIzMDIwMjA0MzEwOTM3NTQ0&filename=&opi=89354086" -o "4_Record_Payment_Sheet.html"
+
+echo "Downloading Screen 5..."
+curl -s -L "https://lh3.googleusercontent.com/aida/ADBb0ugs8kt-q5TODmuKhfMiEw5Mx0QQC5OP-hAhw7l6jvFVHiAwb1uXRITQrOdflzyhHIB0bYHFlGFSqq_PqzqtrJy07M1jwKIc2ZpIsLgIeJM8fk7Bamjo1-bA1IA6v2djXIRKiimPQZnx1RhJW7OHoOzXJ8_lvsSVmSX5DpIcOqigwILuR4u6vl95tYLk46Y2RCWkCqTCeHoJSTu2PsllCjvpqOFgxzyIm-Ggy4OJHy-WQkEdzIaVhops8EY" -o "5_Record_Credit_Sheet.png"
+curl -s -L "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzIzYTk4OWYzNDViNDQ5Y2I5YzUzMjMyNmI4Yzg5YzFhEgsSBxCyidzrwAoYAZIBIwoKcHJvamVjdF9pZBIVQhMzODIzMDIwMjA0MzEwOTM3NTQ0&filename=&opi=89354086" -o "5_Record_Credit_Sheet.html"
+
+echo "Downloading Screen 6..."
+curl -s -L "https://lh3.googleusercontent.com/aida/ADBb0ug8DLlbJ5CA63l8O9siu52SIlP2JVCQMt_JEhLYbVgJAIhp0xbWbS3neyVPWhynlRXCIe-CRUZysihgU4nh7CcvVQoz3zQPoyw_76dDPWCVOEGH9iESgn4cZy7dLbp9sqNXekvo3HYu4Czbg-l70BGtss7Z8B0FKMMWR8LaOaIDz4H5UaeQba_Gi1drTT7Nktd62F5FX8Z6T-q9-ouxmsUT9QRqxYiThdgK2sWAnUAl788MeYbZaplEacI" -o "6_Add_Customer_Modal.png"
+curl -s -L "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sX2FmNDFjYWMxNWFlMzRhY2ZiMjk2OWNmOGIxYWUzNWI4EgsSBxCyidzrwAoYAZIBIwoKcHJvamVjdF9pZBIVQhMzODIzMDIwMjA0MzEwOTM3NTQ0&filename=&opi=89354086" -o "6_Add_Customer_Modal.html"
+
+echo "Downloading Screen 7..."
+curl -s -L "https://lh3.googleusercontent.com/aida/ADBb0uhT8cbSZbYjvUhkwu6ItM_yc3U_wgYIvE5mtqTpyZ0q0eTq94M80D4-UrTwtZN16HAHD2-8yr5tr2BXapQ1xcEkVUngg29MHKl_0N8iEK-G_m9HWyi8h_S55kps-evaBsPCUDArNo-mK-7ttRnVgA9IJcmZbh_SCt0wM9Lk1Z4BjooxPwDekBMGYnclIqSt6MrjTMqX1Uv4Eia3NYTphmtt4nhuaQIv1ypp57Rbois-IC0wSMdvnAltLW8" -o "7_Customer_Ledger.png"
+curl -s -L "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzNkYzVhYjYyMTVmNDQ2OTBhMjFlZWFhM2RlMjRlODZkEgsSBxCyidzrwAoYAZIBIwoKcHJvamVjdF9pZBIVQhMzODIzMDIwMjA0MzEwOTM3NTQ0&filename=&opi=89354086" -o "7_Customer_Ledger.html"
+
+echo "Downloading Screen 8..."
+curl -s -L "https://lh3.googleusercontent.com/aida/ADBb0ugiJsawWs1-exBQws6gqkuoBNdY1iF5VecrJz6iPsPW58HaRLlHF2lB2Nn7Ue8eiajqOVUJgsGBmaMB_SdGT9ga8e2ob83jYqPF17d09lb_dCp8rpGHk3LIaUxgRH_eMfSFSLmzCO4kUCFW2W4HtlQEtVJMF3IXh73Bl8lPsxNlLQNGfzp3fwG-k8J3L_wSrxNGtUfZt7QZP3TEFFzkyEXBRE77KHUJ4zvuW57XAqIZDpDf-TEeJMRZOw" -o "8_Main_Dashboard.png"
+curl -s -L "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sX2VhZThhMTRkMTM5NjQzYzg5N2JiYWVjMGRjOWIxOWUzEgsSBxCyidzrwAoYAZIBIwoKcHJvamVjdF9pZBIVQhMzODIzMDIwMjA0MzEwOTM3NTQ0&filename=&opi=89354086" -o "8_Main_Dashboard.html"
+
+echo "Downloading Screen 9..."
+curl -s -L "https://lh3.googleusercontent.com/aida/ADBb0ujFg5UzAQPjjuanUXsDIDdDGQNIV_ZeKiRth-DjACUuy2UfKhVCKXGF7Qcs8WpfPoqQzV1GAF-Jwv-_2GMgO-lcHpCA6_HBhp0FS9yWOsxenN4CD8Gqw-Zdl1T_ZN8iITylOSiw9wUgEHATgDTc72c7c6QhC4jHA7I3RtxYJRaYV_6ENjLKTPY957y4_RR26nkNpFdFtbT1FtkZ41y7Zi1imLJS8rrA8pbaxQ-W4htjUwlDD9d6ab4UR5s" -o "9_Theme_Selection.png"
+curl -s -L "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzRjOTdmNzU0OTU4YjRmNjM5ODQ0NDBhZWRmMmE2NGExEgsSBxCyidzrwAoYAZIBIwoKcHJvamVjdF9pZBIVQhMzODIzMDIwMjA0MzEwOTM3NTQ0&filename=&opi=89354086" -o "9_Theme_Selection.html"
+
+echo "Downloading Screen 10..."
+curl -s -L "https://lh3.googleusercontent.com/aida/ADBb0ugNZUPp1Qd7pmegcbXQFlYUPoScDWr6lMs2hhWdEhAI-EFsXidEWKlXA7agjwZ_KaNYSWbkrFjddjekM6uEgpBAVh5EkBJpC6H9a8dCQOGT5W0267HP1zxld7LsB-cZwjtXzzSrLbUwiImMQ7lhUfWKqnURSrS66zr1dnRZaq-2hWvqsp_aY5yIBww2RPOOLdPA4iQ06P5G4HdVymMQAvUkYptKA7on849vN4ZJWhO9QheoTxRzNADhM4o" -o "10_Shop_Name_Onboarding.png"
+curl -s -L "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sX2Q4NDU1ODUwMjZmODQ0MDE4MTYxNDA2NjkwOTAyZWE0EgsSBxCyidzrwAoYAZIBIwoKcHJvamVjdF9pZBIVQhMzODIzMDIwMjA0MzEwOTM3NTQ0&filename=&opi=89354086" -o "10_Shop_Name_Onboarding.html"
+
+echo "Downloading Screen 11..."
+curl -s -L "https://lh3.googleusercontent.com/aida/ADBb0uiRG3skNWA-ExLVFP22vzeOIqDQ78fz_YeLsyFaMwqiMNQ2Ytf75NKizwsFIBknBxz83c9uwfUa2C7E-68HhDxw7i0Ha97-T4m-3DIL8NWzw7ubKzzQztklqcI-TgVK7rOt1oEJuGMUzSNYaQovdqWqFMGFEwKJCp1Hin9N5m53l5b2YoEirkYcUgyMIXlNBNNUSUWUnkSbDwEsyVGjSX2RX2lXuAVYl-IHNj-HP5p7kQCZQpfeLYBomg" -o "11_Language_Selection.png"
+curl -s -L "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzcyYjRlZGRhMWVhMzQyOWE4NzBmZjU0ZWYzZTgzNDg4EgsSBxCyidzrwAoYAZIBIwoKcHJvamVjdF9pZBIVQhMzODIzMDIwMjA0MzEwOTM3NTQ0&filename=&opi=89354086" -o "11_Language_Selection.html"
+
+echo "Downloading Screen 12..."
+curl -s -L "https://lh3.googleusercontent.com/aida/ADBb0ujrumxc-RuG2ZrEStjwRrRy7v-JkujzOubXrUG9rk81v15KVunY1g3lshsqeZkVljvxlY1qxdYAKrDPFRRaM9kb6wO0DbCiFGP3jF1Ngsvq-owrsU8-j9UgdmoSFocx5_AEyDTEzE9a0B-nAnhkM1IBDASDsTB1Kx2NLDYDza_UlwmvAMxhqTU30IaijAyRzqR5-T1u2gQ-ucXk9NzSsIk--20d81JNFZ4XNFWDHnebISvnDhU42qTQ8pM" -o "12_Login_OTP_Verification.png"
+curl -s -L "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzQxMjg3NjEzNWFkMzQ0Mjc4NDUyMDZmYTcwMTE5ZTY2EgsSBxCyidzrwAoYAZIBIwoKcHJvamVjdF9pZBIVQhMzODIzMDIwMjA0MzEwOTM3NTQ0&filename=&opi=89354086" -o "12_Login_OTP_Verification.html"
+
+echo "Done fetching all images and HTML codes."

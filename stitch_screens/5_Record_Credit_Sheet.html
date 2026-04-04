@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KhataMitra - Record Credit</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container": "#eeeeee",
+                    "on-secondary-container": "#217128",
+                    "on-error": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed": "#a3f69c",
+                    "on-secondary": "#ffffff",
+                    "inverse-on-surface": "#f1f1f1",
+                    "on-surface-variant": "#424752",
+                    "on-primary-fixed": "#001b3d",
+                    "on-secondary-fixed": "#002204",
+                    "on-primary-fixed-variant": "#00468c",
+                    "primary-fixed": "#d6e3ff",
+                    "on-secondary-fixed-variant": "#005312",
+                    "surface-container-low": "#f3f3f3",
+                    "secondary-fixed-dim": "#88d982",
+                    "on-tertiary-fixed-variant": "#93000e",
+                    "surface-container-high": "#e8e8e8",
+                    "tertiary-fixed-dim": "#ffb4ac",
+                    "surface-dim": "#dadada",
+                    "tertiary-container": "#c42627",
+                    "surface-tint": "#005db7",
+                    "on-primary": "#ffffff",
+                    "on-background": "#1a1c1c",
+                    "surface-container-highest": "#e2e2e2",
+                    "inverse-surface": "#2f3131",
+                    "background": "#f9f9f9",
+                    "error": "#ba1a1a",
+                    "primary-container": "#1565c0",
+                    "secondary-container": "#a0f399",
+                    "on-tertiary": "#ffffff",
+                    "surface-bright": "#f9f9f9",
+                    "primary-fixed-dim": "#a9c7ff",
+                    "on-primary-container": "#dae5ff",
+                    "inverse-primary": "#a9c7ff",
+                    "outline-variant": "#c2c6d4",
+                    "tertiary-fixed": "#ffdad6",
+                    "primary": "#004d99",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#a00312",
+                    "on-tertiary-container": "#ffddd9",
+                    "on-tertiary-fixed": "#410003",
+                    "secondary": "#1b6d24",
+                    "on-surface": "#1a1c1c",
+                    "outline": "#727783",
+                    "surface": "#f9f9f9",
+                    "surface-variant": "#e2e2e2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ios-indicator {
+            width: 134px;
+            height: 5px;
+            background: #000;
+            border-radius: 100px;
+            margin: 8px auto;
+            opacity: 0.2;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-zinc-200 min-h-screen flex flex-col justify-end">
+<!-- Mock Background Content (Simulating the Ledger view behind the sheet) -->
+<div class="fixed inset-0 p-6 space-y-6 opacity-40 select-none">
+<header class="flex justify-between items-center h-16">
+<span class="font-headline font-extrabold text-2xl text-primary">KhataMitra</span>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest"></div>
+</header>
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm border-none">
+<div class="text-on-surface-variant text-sm font-medium">TOTAL BALANCE</div>
+<div class="text-4xl font-headline font-bold text-primary mt-1">₹ 42,850</div>
+</div>
+<div class="space-y-4">
+<div class="h-20 bg-surface-container-lowest rounded-xl"></div>
+<div class="h-20 bg-surface-container-lowest rounded-xl"></div>
+<div class="h-20 bg-surface-container-lowest rounded-xl"></div>
+</div>
+</div>
+<!-- Backdrop Overlay -->
+<div class="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"></div>
+<!-- Bottom Sheet Container -->
+<div class="relative z-50 bg-background rounded-t-[16px] flex flex-col max-h-[751px] h-[574px] w-full max-w-lg mx-auto shadow-2xl overflow-hidden">
+<!-- Header Section -->
+<div class="bg-tertiary-fixed px-4 py-4 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-[40px] h-[40px] rounded-full bg-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 0;">arrow_downward</span>
+</div>
+<div>
+<h2 class="text-tertiary font-headline font-semibold text-lg leading-tight">Record Credit (Udhaar)</h2>
+<p class="text-outline font-body text-sm">For: Ramesh Kumar</p>
+</div>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full active:bg-black/5 transition-colors">
+<span class="material-symbols-outlined text-on-surface">close</span>
+</button>
+</div>
+<!-- Form Content -->
+<div class="flex-1 overflow-y-auto px-6 py-6 space-y-8">
+<!-- Amount Input -->
+<div class="space-y-2">
+<label class="text-on-surface-variant font-label text-sm font-medium">Amount (₹) *</label>
+<div class="relative flex items-center bg-surface-container-high rounded-xl h-16 px-4">
+<span class="text-2xl font-headline font-bold text-on-surface mr-2">₹</span>
+<input class="bg-transparent border-none focus:ring-0 w-full text-[22px] font-headline font-bold text-on-surface p-0" placeholder="0" type="number" value="0"/>
+</div>
+</div>
+<!-- Note Input -->
+<div class="space-y-2">
+<label class="text-on-surface-variant font-label text-sm font-medium">Note (optional)</label>
+<div class="bg-surface-container-high rounded-xl p-4">
+<textarea class="bg-transparent border-none focus:ring-0 w-full text-on-surface font-body p-0 resize-none placeholder:text-outline" maxlength="200" placeholder="What is this credit for?" rows="2"></textarea>
+<div class="text-right text-[10px] text-outline mt-1 font-medium">0 / 200</div>
+</div>
+</div>
+<!-- Date Row -->
+<div class="flex items-center justify-between">
+<label class="text-on-surface-variant font-label text-sm font-medium">Date</label>
+<button class="flex items-center gap-2 bg-primary-fixed text-on-primary-fixed px-4 py-2 rounded-full active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]">calendar_today</span>
+<span class="text-sm font-semibold">Today, 4 Jan</span>
+</button>
+</div>
+<!-- Visual Separation: Subtle Tonal Layering instead of Lines -->
+<div class="h-4"></div>
+</div>
+<!-- Sticky Footer -->
+<div class="bg-background px-6 pt-4 pb-6 flex flex-col items-center">
+<button class="w-full h-[48px] bg-tertiary hover:bg-tertiary-container text-white rounded-full flex items-center justify-center gap-2 shadow-lg active:scale-[0.98] transition-all duration-150">
+<span class="material-symbols-outlined text-[24px]">check</span>
+<span class="font-headline font-bold text-base">Save Credit</span>
+</button>
+<!-- iOS Home Indicator Area -->
+<div class="mt-4 pb-2">
+<div class="ios-indicator"></div>
+</div>
+</div>
+</div>
+<!-- Hidden standard nav shell suppressed for transaction focus -->
+<!-- TopAppBar & BottomNavBar from JSON would normally go here if not suppressed -->
+</body></html>
