@@ -70,9 +70,9 @@ class ThemeSelectionScreen extends ConsumerWidget {
                     icon: Icons.light_mode,
                     mode: ThemeMode.light,
                     currentMode: themeMode,
-                    // Light card unselected icon: primary-fixed bg with primary icon
+                    // Light card unselected icon: primary-fixed bg, use onPrimaryFixed for contrast
                     unselectedIconBg: cs.primaryFixed,
-                    unselectedIconColor: cs.primary,
+                    unselectedIconColor: cs.onPrimaryFixed,
                     onTap: () => ref.read(themeModeProvider.notifier).setThemeMode(ThemeMode.light),
                   ),
                   const SizedBox(height: 16),
@@ -94,9 +94,9 @@ class ThemeSelectionScreen extends ConsumerWidget {
                     icon: Icons.contrast,
                     mode: ThemeMode.system,
                     currentMode: themeMode,
-                    // System card: primary-fixed bg with primary icon
+                    // System card: primary-fixed bg, use onPrimaryFixed for contrast
                     unselectedIconBg: cs.primaryFixed,
-                    unselectedIconColor: cs.primary,
+                    unselectedIconColor: cs.onPrimaryFixed,
                     onTap: () => ref.read(themeModeProvider.notifier).setThemeMode(ThemeMode.system),
                   ),
 
@@ -249,7 +249,8 @@ class _ThemeCard extends StatelessWidget {
           color: isSelected ? selectedCardBg : unselectedCardBg,
           borderRadius: BorderRadius.circular(24),
           border: Border.all(
-            color: isSelected ? cs.primary : cs.outlineVariant.withValues(alpha: 0.35),
+            // onPrimaryFixed gives correct contrast on the primaryFixed card bg in both modes
+            color: isSelected ? cs.onPrimaryFixed : cs.outlineVariant.withValues(alpha: 0.35),
             width: isSelected ? 2.0 : 1.5,
           ),
         ),
@@ -261,14 +262,15 @@ class _ThemeCard extends StatelessWidget {
               width: 40,
               height: 40,
               decoration: BoxDecoration(
-                // Selected: always white box to contrast with blue card bg
-                // Unselected: caller-specified color per mockup
+                // Selected: white box sits on primaryFixed card bg
+                // Unselected: caller-specified per mockup
                 color: isSelected ? Colors.white : unselectedIconBg,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Icon(
                 icon,
-                color: isSelected ? cs.primary : unselectedIconColor,
+                // Selected icon renders inside white box → use onPrimaryFixed for contrast
+                color: isSelected ? cs.onPrimaryFixed : unselectedIconColor,
                 size: 22,
               ),
             ),
@@ -282,14 +284,17 @@ class _ThemeCard extends StatelessWidget {
                     title,
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
                           fontWeight: FontWeight.bold,
-                          color: cs.onSurface,
+                          // Selected card bg is primaryFixed → use onPrimaryFixed for readable text
+                          color: isSelected ? cs.onPrimaryFixed : cs.onSurface,
                         ),
                   ),
                   Text(
                     subtitle,
                     style: Theme.of(context).textTheme.bodySmall?.copyWith(
                           fontWeight: FontWeight.w500,
-                          color: cs.onSurfaceVariant,
+                          color: isSelected
+                              ? cs.onPrimaryFixed.withValues(alpha: 0.75)
+                              : cs.onSurfaceVariant,
                         ),
                   ),
                 ],
@@ -302,7 +307,7 @@ class _ThemeCard extends StatelessWidget {
                   ? Icon(
                       Icons.check_circle,
                       key: const ValueKey('check'),
-                      color: cs.primary,
+                      color: cs.onPrimaryFixed,
                       size: 24,
                     )
                   : const SizedBox(key: ValueKey('empty'), width: 24, height: 24),
