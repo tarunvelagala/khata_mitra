@@ -2,8 +2,8 @@ import 'package:alchemist/alchemist.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:khata_mitra/core/theme/app_theme.dart';
-import 'package:khata_mitra/features/theme/presentation/theme_selection_screen.dart';
+import 'package:khata_pro/core/theme/app_theme.dart';
+import 'package:khata_pro/features/theme/presentation/theme_selection_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {

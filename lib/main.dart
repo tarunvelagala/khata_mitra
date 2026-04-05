@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:khata_mitra/l10n/app_localizations.dart';
+import 'package:khata_pro/l10n/app_localizations.dart';
 
 import 'core/routes/app_router.dart';
 import 'core/theme/app_theme.dart';
