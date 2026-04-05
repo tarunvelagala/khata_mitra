@@ -10,8 +10,9 @@ import 'features/theme/application/theme_provider.dart';
 
 void main() {
   // Disable runtime font fetching — fonts must be bundled as assets.
-  // Without this, google_fonts throws unhandled exceptions on devices
-  // without internet access (e.g. emulators with no network).
+  // TODO: bundle Inter + PlusJakartaSans TTFs in assets/google_fonts/ then
+  // re-enable this. Until then, keep false to avoid unhandled exceptions;
+  // the app falls back to system fonts gracefully.
   GoogleFonts.config.allowRuntimeFetching = false;
   runApp(const ProviderScope(child: KhataMitraApp()));
 }

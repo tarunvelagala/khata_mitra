@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../core/constants/app_assets.dart';
 import '../../../core/constants/app_dimensions.dart';
 import '../../../l10n/app_localizations.dart';
 import '../application/language_provider.dart';
@@ -39,35 +41,24 @@ class LanguageSelectionScreen extends ConsumerWidget {
                       color: cs.primaryFixed,
                       borderRadius: BorderRadius.circular(AppDimensions.radiusMedium),
                     ),
-                    child: Icon(
-                      Icons.menu_book,
-                      size: 48,
-                      color: cs.primary,
-                    ),
+                    padding: const EdgeInsets.all(AppDimensions.iconPadding),
+                    child: SvgPicture.asset(AppAssets.appIcon),
                   ),
                   const SizedBox(height: AppDimensions.cardGap),
                   // HTML line 109: font-headline font-extrabold text-2xl text-primary
                   Text(
-                    'KhataMitra',
+                    'KhataPro',
                     style: tt.headlineSmall?.copyWith(
                       fontWeight: FontWeight.w800,
                       color: cs.primary,
                       letterSpacing: -0.5,
                     ),
                   ),
-                  const SizedBox(height: 8),
-                  // HTML lines 112-114: font-body text-sm — bodySmall, no weight override
+                  const SizedBox(height: AppDimensions.subtitleGap),
+                  // Shows subtitle in the currently active language only.
                   Text(
-                    'Choose your language',
-                    style: tt.bodySmall?.copyWith(color: cs.onSurfaceVariant),
-                  ),
-                  Text(
-                    'अपनी भाषा चुनें',
-                    style: tt.bodySmall?.copyWith(color: cs.onSurfaceVariant),
-                  ),
-                  Text(
-                    'మీ భాష ఎంచుకోండి',
-                    style: tt.bodySmall?.copyWith(color: cs.onSurfaceVariant),
+                    l10n.chooseLanguage,
+                    style: tt.bodyLarge?.copyWith(color: cs.onSurfaceVariant),
                   ),
                 ],
               ),
@@ -126,7 +117,7 @@ class LanguageSelectionScreen extends ConsumerWidget {
                 AppDimensions.screenPaddingH,
                 AppDimensions.cardGap,
                 AppDimensions.screenPaddingH,
-                32, // pb-8 = 32px per HTML line 156
+                AppDimensions.footerPaddingTop, // pb-8 = 32px per HTML line 156
               ),
               decoration: BoxDecoration(
                 gradient: LinearGradient(
@@ -204,8 +195,8 @@ class _LanguageCard extends StatelessWidget {
               : cs.surfaceContainerLowest,
           borderRadius: BorderRadius.circular(AppDimensions.radiusMedium),
           border: Border.all(
-            color: isSelected ? cs.primary : Colors.transparent,
-            width: AppDimensions.borderFocused,
+            color: isSelected ? cs.primary : cs.outlineVariant.withValues(alpha: 0.3),
+            width: isSelected ? AppDimensions.borderFocused : AppDimensions.borderSubtle,
           ),
         ),
         child: Row(

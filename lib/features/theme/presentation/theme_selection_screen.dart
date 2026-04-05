@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../core/constants/app_assets.dart';
 import '../../../core/constants/app_dimensions.dart';
 import '../application/theme_provider.dart';
 
@@ -32,6 +34,7 @@ class ThemeSelectionScreen extends ConsumerWidget {
                   Container(
                     width: 80,
                     height: 80,
+                    padding: const EdgeInsets.all(AppDimensions.iconPadding),
                     decoration: BoxDecoration(
                       color: cs.primaryFixed,
                       borderRadius: BorderRadius.circular(AppDimensions.radiusLarge),
@@ -43,16 +46,12 @@ class ThemeSelectionScreen extends ConsumerWidget {
                         ),
                       ],
                     ),
-                    child: Icon(
-                      Icons.menu_book,
-                      size: 40,
-                      color: cs.primary,
-                    ),
+                    child: SvgPicture.asset(AppAssets.appIcon),
                   ),
                   const SizedBox(height: AppDimensions.cardGap),
                   // font-headline font-extrabold text-[22px] tracking-tight
                   Text(
-                    'KhataMitra',
+                    'KhataPro',
                     style: tt.headlineSmall?.copyWith(
                       color: cs.primary,
                       fontWeight: FontWeight.w800,

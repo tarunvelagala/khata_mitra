@@ -64,6 +64,9 @@ abstract final class AppDimensions {
   static const double scrollBottomClearance = 128;
 
   // ── Component spacing ─────────────────────────────────────────────
+  /// Tight gap between heading and subtitle text (8px).
+  static const double subtitleGap = 8;
+
   /// Gap between repeated cards / list items (space-y-4 = 16px).
   static const double cardGap = 16;
 
@@ -79,6 +82,10 @@ abstract final class AppDimensions {
 
   /// Bottom padding inside footer (pb-4 = 16px on theme, pb-8 = 32px on language).
   static const double footerPaddingBottom = 16;
+
+  // ── Icon ──────────────────────────────────────────────────────────
+  /// Padding inside the 80×80 app icon container (keeps SVG from touching edges).
+  static const double iconPadding = 14;
 
   // ── Divider ───────────────────────────────────────────────────────
   static const double dividerThickness = 1;

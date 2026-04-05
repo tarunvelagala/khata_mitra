@@ -22,8 +22,7 @@ abstract final class _TypeScale {
   static const double labelMedium    = 12;
   static const double labelSmall     = 11;
 
-  // Letter spacing — named by magnitude, not role, because several styles
-  // share the same value (e.g. 0.1 → titleSmall & labelLarge).
+  // Letter spacing
   static const double spacingTight2 = -0.50;
   static const double spacingTight1 = -0.25;
   static const double spacingXs     =  0.10;
@@ -36,33 +35,69 @@ abstract final class _TypeScale {
 
 /// Typography system for KhataPro.
 ///
-/// Call [forLocale] to get a [TextTheme] with the correct font family for the
-/// active locale:
-/// - Latin (en): Plus Jakarta Sans (headlines) + Inter (body/labels)
-/// - Hindi (hi): Noto Sans Devanagari
-/// - Telugu (te): Noto Sans Telugu
-/// - Tamil (ta): Noto Sans Tamil
-/// - Kannada (kn): Noto Sans Kannada
-/// - Malayalam (ml): Noto Sans Malayalam
+/// [forLocale] always returns the same brand fonts (Plus Jakarta Sans +
+/// Inter). For Indic locales, the matching Noto Sans family is appended as
+/// a [fontFamilyFallback] on every style — Flutter uses it automatically
+/// for any character the primary font cannot render (Telugu, Devanagari,
+/// Tamil, etc.) while all Latin text (numbers, UI labels) stays in brand
+/// fonts.
 ///
-/// `inherit: true` is set on every style so Flutter can lerp between light and
-/// dark ThemeData without "Failed to interpolate TextStyles" errors.
-/// Colors are intentionally absent — they are applied by ThemeData.textTheme
-/// so that light and dark themes resolve correctly at runtime.
+/// `inherit: true` is set on every style so Flutter can lerp between light
+/// and dark ThemeData without "Failed to interpolate TextStyles" errors.
+/// Colors are intentionally absent — resolved by ThemeData.textTheme.
 abstract final class AppTextStyles {
-  /// Returns the correct [TextTheme] for [locale].
-  static TextTheme forLocale(Locale locale) => switch (locale.languageCode) {
-    'hi' => _notoSansDevanagariTheme,
-    'te' => _notoSansTeluguTheme,
-    'ta' => _notoSansTamilTheme,
-    'kn' => _notoSansKannadaTheme,
-    'ml' => _notoSansMalayalamTheme,
-    _    => _latinTheme,
+  /// Returns a [TextTheme] with the correct fallback fonts for [locale].
+  static TextTheme forLocale(Locale locale) {
+    final fallback = _indicFallback(locale.languageCode);
+    if (fallback == null) return _baseTheme;
+    return _cached.putIfAbsent(locale.languageCode, () => _withFallback(fallback));
+  }
+
+  // ── Indic fallback font name per language code ─────────────────────────
+  static String? _indicFallback(String langCode) => switch (langCode) {
+    'hi' => 'Noto Sans Devanagari',
+    'te' => 'Noto Sans Telugu',
+    'ta' => 'Noto Sans Tamil',
+    'kn' => 'Noto Sans Kannada',
+    'ml' => 'Noto Sans Malayalam',
+    _    => null,
   };
 
-  // ── Latin theme (en) — Plus Jakarta Sans + Inter ───────────────────────
+  // Cache per language code to avoid rebuilding on every theme change.
+  static final Map<String, TextTheme> _cached = {};
 
-  static final TextTheme _latinTheme = TextTheme(
+  /// Appends [fallbackFamily] to every style's fontFamilyFallback list.
+  /// Brand fonts remain primary; fallback only activates for glyphs they
+  /// cannot render.
+  static TextTheme _withFallback(String fallbackFamily) {
+    TextStyle addFallback(TextStyle? style) {
+      if (style == null) return TextStyle(fontFamilyFallback: [fallbackFamily]);
+      final existing = style.fontFamilyFallback ?? [];
+      return style.copyWith(fontFamilyFallback: [...existing, fallbackFamily]);
+    }
+
+    return TextTheme(
+      displayLarge:   addFallback(_baseTheme.displayLarge),
+      displayMedium:  addFallback(_baseTheme.displayMedium),
+      displaySmall:   addFallback(_baseTheme.displaySmall),
+      headlineLarge:  addFallback(_baseTheme.headlineLarge),
+      headlineMedium: addFallback(_baseTheme.headlineMedium),
+      headlineSmall:  addFallback(_baseTheme.headlineSmall),
+      titleLarge:     addFallback(_baseTheme.titleLarge),
+      titleMedium:    addFallback(_baseTheme.titleMedium),
+      titleSmall:     addFallback(_baseTheme.titleSmall),
+      bodyLarge:      addFallback(_baseTheme.bodyLarge),
+      bodyMedium:     addFallback(_baseTheme.bodyMedium),
+      bodySmall:      addFallback(_baseTheme.bodySmall),
+      labelLarge:     addFallback(_baseTheme.labelLarge),
+      labelMedium:    addFallback(_baseTheme.labelMedium),
+      labelSmall:     addFallback(_baseTheme.labelSmall),
+    );
+  }
+
+  // ── Base theme — Plus Jakarta Sans (headlines) + Inter (body/labels) ───
+
+  static final TextTheme _baseTheme = TextTheme(
     displayLarge:   displayLarge,
     displayMedium:  displayMedium,
     displaySmall:   displaySmall,
@@ -80,29 +115,7 @@ abstract final class AppTextStyles {
     labelSmall:     labelSmall,
   );
 
-  // ── Indic themes — single Noto Sans family per script ──────────────────
-  // Noto Sans families cover all weight/size roles in a single typeface,
-  // so we use GoogleFonts.*TextTheme() which applies the font to every
-  // TextTheme slot, then override sizes to match our type scale.
-
-  static final TextTheme _notoSansDevanagariTheme =
-      GoogleFonts.notoSansDevanagariTextTheme(_latinTheme);
-
-  static final TextTheme _notoSansTeluguTheme =
-      GoogleFonts.notoSansTeluguTextTheme(_latinTheme);
-
-  static final TextTheme _notoSansTamilTheme =
-      GoogleFonts.notoSansTamilTextTheme(_latinTheme);
-
-  static final TextTheme _notoSansKannadaTheme =
-      GoogleFonts.notoSansKannadaTextTheme(_latinTheme);
-
-  static final TextTheme _notoSansMalayalamTheme =
-      GoogleFonts.notoSansMalayalamTextTheme(_latinTheme);
-
-  // ── Latin style getters (used to build _latinTheme above) ─────────────
-
-  // ── Display ───────────────────────────────────────────────────────
+  // ── Display ───────────────────────────────────────────────────────────
   static TextStyle get displayLarge => GoogleFonts.plusJakartaSans(
         fontSize: _TypeScale.displayLarge,
         fontWeight: FontWeight.w400,
@@ -119,7 +132,7 @@ abstract final class AppTextStyles {
         fontWeight: FontWeight.w400,
       ).copyWith(inherit: true);
 
-  // ── Headline ──────────────────────────────────────────────────────
+  // ── Headline ──────────────────────────────────────────────────────────
   static TextStyle get headlineLarge => GoogleFonts.plusJakartaSans(
         fontSize: _TypeScale.headlineLarge,
         fontWeight: FontWeight.w800,
@@ -137,7 +150,7 @@ abstract final class AppTextStyles {
         fontWeight: FontWeight.w700,
       ).copyWith(inherit: true);
 
-  // ── Title ─────────────────────────────────────────────────────────
+  // ── Title ─────────────────────────────────────────────────────────────
   static TextStyle get titleLarge => GoogleFonts.plusJakartaSans(
         fontSize: _TypeScale.titleLarge,
         fontWeight: FontWeight.w700,
@@ -155,7 +168,7 @@ abstract final class AppTextStyles {
         letterSpacing: _TypeScale.spacingXs,
       ).copyWith(inherit: true);
 
-  // ── Body ──────────────────────────────────────────────────────────
+  // ── Body ──────────────────────────────────────────────────────────────
   static TextStyle get bodyLarge => GoogleFonts.inter(
         fontSize: _TypeScale.bodyLarge,
         fontWeight: FontWeight.w400,
@@ -174,7 +187,7 @@ abstract final class AppTextStyles {
         letterSpacing: _TypeScale.spacingLg,
       ).copyWith(inherit: true);
 
-  // ── Label ─────────────────────────────────────────────────────────
+  // ── Label ─────────────────────────────────────────────────────────────
   static TextStyle get labelLarge => GoogleFonts.inter(
         fontSize: _TypeScale.labelLarge,
         fontWeight: FontWeight.w600,
