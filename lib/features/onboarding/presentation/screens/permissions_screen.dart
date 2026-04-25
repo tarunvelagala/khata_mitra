@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/constants/app_dimensions.dart';
 import '../../../../l10n/app_localizations.dart';
+import '../providers/onboarding_providers.dart';
 import '../widgets/step_indicator.dart';
 
 // ── File-private layout constants ──────────────────────────────────────────
@@ -84,11 +86,11 @@ List<_PermissionItem> _buildPermissions(AppLocalizations l10n) => [
       ),
 ];
 
-class PermissionsScreen extends StatelessWidget {
+class PermissionsScreen extends ConsumerWidget {
   const PermissionsScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final tt = Theme.of(context).textTheme;
     final cs = Theme.of(context).colorScheme;
     final l10n = AppLocalizations.of(context)!;
@@ -172,7 +174,10 @@ class PermissionsScreen extends StatelessWidget {
                     width: double.infinity,
                     child: ElevatedButton.icon(
                       key: const ValueKey('btn_permissions_allow'),
-                      onPressed: () => context.go('/home'),
+                      onPressed: () {
+                        ref.read(isOnboardingCompleteProvider.notifier).complete();
+                        context.go('/home');
+                      },
                       icon: const Icon(Icons.check),
                       label: Text(l10n.permissionsAllow),
                     ),
@@ -182,7 +187,10 @@ class PermissionsScreen extends StatelessWidget {
                     width: double.infinity,
                     child: TextButton(
                       key: const ValueKey('btn_permissions_skip'),
-                      onPressed: () => context.go('/home'),
+                      onPressed: () {
+                        ref.read(isOnboardingCompleteProvider.notifier).complete();
+                        context.go('/home');
+                      },
                       child: Text(
                         l10n.permissionsSkip,
                         style: tt.labelLarge?.copyWith(color: cs.onSurfaceVariant),

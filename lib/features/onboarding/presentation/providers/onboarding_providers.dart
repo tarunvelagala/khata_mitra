@@ -93,3 +93,17 @@ class ShopDetailsNotifier extends Notifier<ShopDetails> {
 final shopDetailsProvider = NotifierProvider<ShopDetailsNotifier, ShopDetails>(
   ShopDetailsNotifier.new,
 );
+
+// ── Onboarding completion ─────────────────────────────────────────────────────
+
+class OnboardingCompleteNotifier extends Notifier<bool> {
+  @override
+  bool build() => false;
+
+  void complete() => state = true;
+}
+
+final isOnboardingCompleteProvider =
+    NotifierProvider<OnboardingCompleteNotifier, bool>(
+  OnboardingCompleteNotifier.new,
+);
