@@ -1,11 +1,9 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/theme/app_colors.dart';
-import '../../../onboarding/presentation/providers/onboarding_providers.dart';
 
 // ── File-private layout constants ─────────────────────────────────────────────
 abstract final class _Dims {
@@ -28,14 +26,14 @@ abstract final class _T {
 
 // ── SplashScreen ──────────────────────────────────────────────────────────────
 
-class SplashScreen extends ConsumerStatefulWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
   @override
-  ConsumerState<SplashScreen> createState() => _SplashScreenState();
+  State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends ConsumerState<SplashScreen>
+class _SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
   late final AnimationController _ctrl;
   late final Animation<double> _markOpacity;
@@ -73,8 +71,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
   void _navigate() {
     if (!mounted) return;
     try {
-      final isComplete = ref.read(isOnboardingCompleteProvider);
-      context.go(isComplete ? '/home' : '/onboarding/language');
+      context.go('/home');
     } catch (e) {
       log('SplashScreen navigate error: $e', name: 'SplashScreen');
     }
