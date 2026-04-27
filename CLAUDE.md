@@ -46,6 +46,15 @@ lib/
 
 Plan the full slice before writing code: domain models → repository interface → Riverpod provider → screen → tests. Get alignment on the approach, then implement end-to-end.
 
+### Production patterns first
+
+Before implementing any new screen, component, or UX flow, invoke `/research <topic>` to check how production apps (PhonePe, OkCredit, Khatabook, Google Pay, Duolingo) have solved the same problem. This prevents reinventing the wheel and grounds decisions in proven patterns.
+
+Examples:
+- `/research empty state for customer list`
+- `/research PIN entry screen`
+- `/research bottom sheet vs full screen for add entry`
+
 ### Design system — DESIGN.md is the single source of truth
 
 **`DESIGN.md`** contains the complete design system (YAML tokens + prose rationale) and all engineering standards. When Dart code conflicts with DESIGN.md, DESIGN.md wins.

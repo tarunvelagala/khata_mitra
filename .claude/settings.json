@@ -12,6 +12,7 @@
       "Bash(git diff*)",
       "Bash(git log*)",
       "Bash(git branch*)",
+      "Bash(git push*)",
       "Bash(python3 *)"
     ]
   },
@@ -25,6 +26,17 @@
             "command": "cd \"$CLAUDE_PROJECT_DIR\" && dart analyze 2>&1 | tail -5",
             "timeout": 60,
             "statusMessage": "Linting..."
+          }
+        ]
+      },
+      {
+        "matcher": "Bash(git commit*)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd \"$CLAUDE_PROJECT_DIR\" && .claude/hooks/post-commit-agents.sh",
+            "timeout": 10,
+            "statusMessage": "Reminding about agent reviews..."
           }
         ]
       }
