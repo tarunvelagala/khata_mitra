@@ -59,4 +59,88 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get languageSkipButton => 'आत्ता नाही';
+
+  @override
+  String get balanceCardLabel => 'एकूण शिल्लक';
+
+  @override
+  String get balanceShowTooltip => 'शिल्लक दाखवा';
+
+  @override
+  String get balanceHideTooltip => 'शिल्लक लपवा';
+
+  @override
+  String get summaryIncomeLabel => 'तुम्हाला मिळणार';
+
+  @override
+  String get summaryExpenseLabel => 'तुम्हाला द्यायचे';
+
+  @override
+  String get homeCustomersHeader => 'ग्राहक';
+
+  @override
+  String get homeAddEntryTooltip => 'नोंद जोडा';
+
+  @override
+  String get homeEmptyTitle => 'अजून कोणतेही ग्राहक नाहीत';
+
+  @override
+  String get homeEmptyBody => 'पेमेंट ट्रॅक करण्यासाठी पहिला ग्राहक जोडा.';
+
+  @override
+  String get homeEmptyAddCustomer => 'ग्राहक जोडा';
+
+  @override
+  String get navHome => 'मुख्यपृष्ठ';
+
+  @override
+  String get navCustomers => 'ग्राहक';
+
+  @override
+  String get navMore => 'अधिक';
+
+  @override
+  String get navReports => 'अहवाल';
+
+  @override
+  String get navSettings => 'सेटिंग्ज';
+
+  @override
+  String get appBarNotificationsTooltip => 'सूचना';
+
+  @override
+  String get quickActionAddCustomer => 'ग्राहक जोडा';
+
+  @override
+  String get quickActionGenerateBill => 'बिल तयार करा';
+
+  @override
+  String get quickActionSendReminder => 'रिमाइंडर पाठवा';
+
+  @override
+  String get quickActionRecordPayment => 'पेमेंट नोंदवा';
+
+  @override
+  String get homeRecentTransactions => 'अलीकडील व्यवहार';
+
+  @override
+  String get homeSeeAll => 'सर्व पहा';
+
+  @override
+  String get homeAddEntry => 'नोंद जोडा';
+
+  @override
+  String txnTimeMinutesAgo(int minutes) {
+    return '$minutes मिनिटांपूर्वी';
+  }
+
+  @override
+  String txnTimeToday(String time) {
+    return 'आज, $time';
+  }
+
+  @override
+  String txnTimeYesterday(String time) {
+    return 'काल, $time';
+  }
 }

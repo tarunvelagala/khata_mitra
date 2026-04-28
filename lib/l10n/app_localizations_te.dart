@@ -59,4 +59,89 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String get languageSkipButton => 'ఇప్పుడు వద్దు';
+
+  @override
+  String get balanceCardLabel => 'మొత్తం బాకీ';
+
+  @override
+  String get balanceShowTooltip => 'బ్యాలెన్స్ చూపించు';
+
+  @override
+  String get balanceHideTooltip => 'బ్యాలెన్స్ దాచు';
+
+  @override
+  String get summaryIncomeLabel => 'మీకు రావాలి';
+
+  @override
+  String get summaryExpenseLabel => 'మీరు ఇవ్వాలి';
+
+  @override
+  String get homeCustomersHeader => 'కస్టమర్లు';
+
+  @override
+  String get homeAddEntryTooltip => 'ఎంట్రీ జోడించు';
+
+  @override
+  String get homeEmptyTitle => 'ఇంకా కస్టమర్లు లేరు';
+
+  @override
+  String get homeEmptyBody =>
+      'చెల్లింపులు ట్రాక్ చేయడానికి మొదటి కస్టమర్‌ని జోడించండి.';
+
+  @override
+  String get homeEmptyAddCustomer => 'కస్టమర్ జోడించు';
+
+  @override
+  String get navHome => 'హోమ్';
+
+  @override
+  String get navCustomers => 'కస్టమర్లు';
+
+  @override
+  String get navMore => 'మరిన్ని';
+
+  @override
+  String get navReports => 'నివేదికలు';
+
+  @override
+  String get navSettings => 'సెట్టింగులు';
+
+  @override
+  String get appBarNotificationsTooltip => 'నోటిఫికేషన్లు';
+
+  @override
+  String get quickActionAddCustomer => 'కస్టమర్ జోడించు';
+
+  @override
+  String get quickActionGenerateBill => 'బిల్లు తయారు చేయి';
+
+  @override
+  String get quickActionSendReminder => 'రిమైండర్ పంపండి';
+
+  @override
+  String get quickActionRecordPayment => 'చెల్లింపు నమోదు చేయి';
+
+  @override
+  String get homeRecentTransactions => 'ఇటీవలి లావాదేవీలు';
+
+  @override
+  String get homeSeeAll => 'అన్నీ చూడు';
+
+  @override
+  String get homeAddEntry => 'ఎంట్రీ జోడించు';
+
+  @override
+  String txnTimeMinutesAgo(int minutes) {
+    return '$minutes నిమిషాల క్రితం';
+  }
+
+  @override
+  String txnTimeToday(String time) {
+    return 'ఈరోజు, $time';
+  }
+
+  @override
+  String txnTimeYesterday(String time) {
+    return 'నిన్న, $time';
+  }
 }

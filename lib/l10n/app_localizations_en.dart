@@ -59,4 +59,89 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get languageSkipButton => 'Skip for now';
+
+  @override
+  String get balanceCardLabel => 'Total Balance';
+
+  @override
+  String get balanceShowTooltip => 'Show balance';
+
+  @override
+  String get balanceHideTooltip => 'Hide balance';
+
+  @override
+  String get summaryIncomeLabel => 'You get';
+
+  @override
+  String get summaryExpenseLabel => 'You give';
+
+  @override
+  String get homeCustomersHeader => 'Customers';
+
+  @override
+  String get homeAddEntryTooltip => 'Add entry';
+
+  @override
+  String get homeEmptyTitle => 'No customers yet';
+
+  @override
+  String get homeEmptyBody =>
+      'Add your first customer to start tracking payments.';
+
+  @override
+  String get homeEmptyAddCustomer => 'Add Customer';
+
+  @override
+  String get navHome => 'Home';
+
+  @override
+  String get navCustomers => 'Customers';
+
+  @override
+  String get navMore => 'More';
+
+  @override
+  String get navReports => 'Reports';
+
+  @override
+  String get navSettings => 'Settings';
+
+  @override
+  String get appBarNotificationsTooltip => 'Notifications';
+
+  @override
+  String get quickActionAddCustomer => 'Add Customer';
+
+  @override
+  String get quickActionGenerateBill => 'Generate Bill';
+
+  @override
+  String get quickActionSendReminder => 'Send Reminder';
+
+  @override
+  String get quickActionRecordPayment => 'Record Payment';
+
+  @override
+  String get homeRecentTransactions => 'Recent Transactions';
+
+  @override
+  String get homeSeeAll => 'See all';
+
+  @override
+  String get homeAddEntry => 'Add Entry';
+
+  @override
+  String txnTimeMinutesAgo(int minutes) {
+    return '${minutes}m ago';
+  }
+
+  @override
+  String txnTimeToday(String time) {
+    return 'Today, $time';
+  }
+
+  @override
+  String txnTimeYesterday(String time) {
+    return 'Yesterday, $time';
+  }
 }

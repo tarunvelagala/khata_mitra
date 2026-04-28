@@ -59,4 +59,89 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get languageSkipButton => 'ഇപ്പോൾ വേണ്ട';
+
+  @override
+  String get balanceCardLabel => 'മൊത്തം ബാക്കി';
+
+  @override
+  String get balanceShowTooltip => 'ബാലൻസ് കാണിക്കൂ';
+
+  @override
+  String get balanceHideTooltip => 'ബാലൻസ് മറയ്ക്കൂ';
+
+  @override
+  String get summaryIncomeLabel => 'നിങ്ങൾക്ക് കിട്ടണം';
+
+  @override
+  String get summaryExpenseLabel => 'നിങ്ങൾ കൊടുക്കണം';
+
+  @override
+  String get homeCustomersHeader => 'ഉപഭോക്താക്കൾ';
+
+  @override
+  String get homeAddEntryTooltip => 'എൻട്രി ചേർക്കൂ';
+
+  @override
+  String get homeEmptyTitle => 'ഇനിയും ഉപഭോക്താക്കൾ ഇല്ല';
+
+  @override
+  String get homeEmptyBody =>
+      'പേയ്‌മെന്റ് ട്രാക്ക് ചെയ്യാൻ ആദ്യ ഉപഭോക്താവിനെ ചേർക്കൂ.';
+
+  @override
+  String get homeEmptyAddCustomer => 'ഉപഭോക്താവിനെ ചേർക്കൂ';
+
+  @override
+  String get navHome => 'ഹോം';
+
+  @override
+  String get navCustomers => 'ഉപഭോക്താക്കൾ';
+
+  @override
+  String get navMore => 'കൂടുതൽ';
+
+  @override
+  String get navReports => 'റിപ്പോർട്ടുകൾ';
+
+  @override
+  String get navSettings => 'ക്രമീകരണങ്ങൾ';
+
+  @override
+  String get appBarNotificationsTooltip => 'അറിയിപ്പുകൾ';
+
+  @override
+  String get quickActionAddCustomer => 'ഉപഭോക്താവിനെ ചേർക്കൂ';
+
+  @override
+  String get quickActionGenerateBill => 'ബിൽ ഉണ്ടാക്കൂ';
+
+  @override
+  String get quickActionSendReminder => 'റിമൈൻഡർ അയക്കൂ';
+
+  @override
+  String get quickActionRecordPayment => 'പേമെന്റ് രേഖപ്പെടുത്തൂ';
+
+  @override
+  String get homeRecentTransactions => 'സമീപകാല ഇടപാടുകൾ';
+
+  @override
+  String get homeSeeAll => 'എല്ലാം കാണൂ';
+
+  @override
+  String get homeAddEntry => 'എൻട്രി ചേർക്കൂ';
+
+  @override
+  String txnTimeMinutesAgo(int minutes) {
+    return '$minutes മിനിറ്റ് മുമ്പ്';
+  }
+
+  @override
+  String txnTimeToday(String time) {
+    return 'ഇന്ന്, $time';
+  }
+
+  @override
+  String txnTimeYesterday(String time) {
+    return 'ഇന്നലെ, $time';
+  }
 }

@@ -205,6 +205,162 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Skip for now'**
   String get languageSkipButton;
+
+  /// No description provided for @balanceCardLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Balance'**
+  String get balanceCardLabel;
+
+  /// No description provided for @balanceShowTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Show balance'**
+  String get balanceShowTooltip;
+
+  /// No description provided for @balanceHideTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Hide balance'**
+  String get balanceHideTooltip;
+
+  /// No description provided for @summaryIncomeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'You get'**
+  String get summaryIncomeLabel;
+
+  /// No description provided for @summaryExpenseLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'You give'**
+  String get summaryExpenseLabel;
+
+  /// No description provided for @homeCustomersHeader.
+  ///
+  /// In en, this message translates to:
+  /// **'Customers'**
+  String get homeCustomersHeader;
+
+  /// No description provided for @homeAddEntryTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Add entry'**
+  String get homeAddEntryTooltip;
+
+  /// No description provided for @homeEmptyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No customers yet'**
+  String get homeEmptyTitle;
+
+  /// No description provided for @homeEmptyBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Add your first customer to start tracking payments.'**
+  String get homeEmptyBody;
+
+  /// No description provided for @homeEmptyAddCustomer.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Customer'**
+  String get homeEmptyAddCustomer;
+
+  /// No description provided for @navHome.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get navHome;
+
+  /// No description provided for @navCustomers.
+  ///
+  /// In en, this message translates to:
+  /// **'Customers'**
+  String get navCustomers;
+
+  /// No description provided for @navMore.
+  ///
+  /// In en, this message translates to:
+  /// **'More'**
+  String get navMore;
+
+  /// No description provided for @navReports.
+  ///
+  /// In en, this message translates to:
+  /// **'Reports'**
+  String get navReports;
+
+  /// No description provided for @navSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get navSettings;
+
+  /// No description provided for @appBarNotificationsTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get appBarNotificationsTooltip;
+
+  /// No description provided for @quickActionAddCustomer.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Customer'**
+  String get quickActionAddCustomer;
+
+  /// No description provided for @quickActionGenerateBill.
+  ///
+  /// In en, this message translates to:
+  /// **'Generate Bill'**
+  String get quickActionGenerateBill;
+
+  /// No description provided for @quickActionSendReminder.
+  ///
+  /// In en, this message translates to:
+  /// **'Send Reminder'**
+  String get quickActionSendReminder;
+
+  /// No description provided for @quickActionRecordPayment.
+  ///
+  /// In en, this message translates to:
+  /// **'Record Payment'**
+  String get quickActionRecordPayment;
+
+  /// No description provided for @homeRecentTransactions.
+  ///
+  /// In en, this message translates to:
+  /// **'Recent Transactions'**
+  String get homeRecentTransactions;
+
+  /// No description provided for @homeSeeAll.
+  ///
+  /// In en, this message translates to:
+  /// **'See all'**
+  String get homeSeeAll;
+
+  /// No description provided for @homeAddEntry.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Entry'**
+  String get homeAddEntry;
+
+  /// No description provided for @txnTimeMinutesAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'{minutes}m ago'**
+  String txnTimeMinutesAgo(int minutes);
+
+  /// No description provided for @txnTimeToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Today, {time}'**
+  String txnTimeToday(String time);
+
+  /// No description provided for @txnTimeYesterday.
+  ///
+  /// In en, this message translates to:
+  /// **'Yesterday, {time}'**
+  String txnTimeYesterday(String time);
 }
 
 class _AppLocalizationsDelegate

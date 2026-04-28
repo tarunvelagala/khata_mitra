@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../features/home/presentation/screens/home_shell.dart';
 import '../features/settings/presentation/screens/language_selection_screen.dart';
 import '../features/splash/presentation/screens/splash_screen.dart';
 import '../features/tour/presentation/screens/tour_screen.dart';
@@ -27,8 +27,7 @@ final appRouter = GoRouter(
     ),
     GoRoute(
       path: '/home',
-      builder: (context, state) =>
-          const Scaffold(body: Center(child: Text('KhataPro — Coming soon!'))),
+      builder: (context, state) => const HomeShell(),
     ),
   ],
 );

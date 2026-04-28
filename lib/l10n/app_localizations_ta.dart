@@ -59,4 +59,89 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get languageSkipButton => 'இப்போது வேண்டாம்';
+
+  @override
+  String get balanceCardLabel => 'மொத்த இருப்பு';
+
+  @override
+  String get balanceShowTooltip => 'இருப்பு காட்டு';
+
+  @override
+  String get balanceHideTooltip => 'இருப்பு மறை';
+
+  @override
+  String get summaryIncomeLabel => 'உங்களுக்கு வர வேண்டியது';
+
+  @override
+  String get summaryExpenseLabel => 'நீங்கள் கொடுக்க வேண்டியது';
+
+  @override
+  String get homeCustomersHeader => 'வாடிக்கையாளர்கள்';
+
+  @override
+  String get homeAddEntryTooltip => 'பதிவு சேர்க்கவும்';
+
+  @override
+  String get homeEmptyTitle => 'இன்னும் வாடிக்கையாளர்கள் இல்லை';
+
+  @override
+  String get homeEmptyBody =>
+      'பணம் கண்காணிக்க முதல் வாடிக்கையாளரை சேர்க்கவும்.';
+
+  @override
+  String get homeEmptyAddCustomer => 'வாடிக்கையாளர் சேர்க்கவும்';
+
+  @override
+  String get navHome => 'முகப்பு';
+
+  @override
+  String get navCustomers => 'வாடிக்கையாளர்கள்';
+
+  @override
+  String get navMore => 'மேலும்';
+
+  @override
+  String get navReports => 'அறிக்கைகள்';
+
+  @override
+  String get navSettings => 'அமைப்புகள்';
+
+  @override
+  String get appBarNotificationsTooltip => 'அறிவிப்புகள்';
+
+  @override
+  String get quickActionAddCustomer => 'வாடிக்கையாளர் சேர்க்கவும்';
+
+  @override
+  String get quickActionGenerateBill => 'பில் உருவாக்கவும்';
+
+  @override
+  String get quickActionSendReminder => 'நினைவூட்டல் அனுப்பவும்';
+
+  @override
+  String get quickActionRecordPayment => 'பணம் பதிவு செய்யவும்';
+
+  @override
+  String get homeRecentTransactions => 'சமீபத்திய பரிவர்த்தனைகள்';
+
+  @override
+  String get homeSeeAll => 'அனைத்தும் காண்க';
+
+  @override
+  String get homeAddEntry => 'பதிவு சேர்க்கவும்';
+
+  @override
+  String txnTimeMinutesAgo(int minutes) {
+    return '$minutes நிமிடம் முன்பு';
+  }
+
+  @override
+  String txnTimeToday(String time) {
+    return 'இன்று, $time';
+  }
+
+  @override
+  String txnTimeYesterday(String time) {
+    return 'நேற்று, $time';
+  }
 }

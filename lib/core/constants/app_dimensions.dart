@@ -55,4 +55,8 @@ abstract final class AppDimensions {
   // ── Badge ─────────────────────────────────────────────────────────
   /// Alpha for the glass-effect badge background on selection cards.
   static const double badgeGlassAlpha = 0.08;
+
+  // ── Opacity ───────────────────────────────────────────────────────
+  /// Alpha for secondary labels inside tonal containers (balance card label, etc.)
+  static const double subtleLabelAlpha = 0.72;
 }

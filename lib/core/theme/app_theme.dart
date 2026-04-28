@@ -115,6 +115,14 @@ abstract final class AppTheme {
       bg: AppColors.surfaceContainerLowest,
       icon: AppColors.primary,
     ),
+    navigationBarTheme: _navigationBarTheme(
+      indicator: AppColors.primaryContainer,
+      indicatorIcon: AppColors.onPrimaryContainer,
+    ),
+    floatingActionButtonTheme: _fabTheme(
+      bg: AppColors.primary,
+      fg: AppColors.onPrimary,
+    ),
     dividerTheme: _dividerTheme(AppColors.outlineVariant),
   );
 
@@ -139,6 +147,14 @@ abstract final class AppTheme {
     appBarTheme: _appBarTheme(
       bg: AppColors.darkSurfaceContainerLowest,
       icon: AppColors.darkPrimary,
+    ),
+    navigationBarTheme: _navigationBarTheme(
+      indicator: AppColors.darkPrimaryContainer,
+      indicatorIcon: AppColors.darkOnPrimaryContainer,
+    ),
+    floatingActionButtonTheme: _fabTheme(
+      bg: AppColors.darkPrimary,
+      fg: AppColors.darkOnPrimary,
     ),
     dividerTheme: _dividerTheme(AppColors.darkOutlineVariant),
   );
@@ -226,5 +242,30 @@ abstract final class AppTheme {
     color: color,
     thickness: AppDimensions.dividerThickness,
     space: AppDimensions.dividerSpace,
+  );
+
+  static NavigationBarThemeData _navigationBarTheme({
+    required Color indicator,
+    required Color indicatorIcon,
+  }) => NavigationBarThemeData(
+    indicatorColor: indicator,
+    iconTheme: WidgetStateProperty.resolveWith((states) {
+      if (states.contains(WidgetState.selected)) {
+        return IconThemeData(color: indicatorIcon);
+      }
+      return null;
+    }),
+  );
+
+  static FloatingActionButtonThemeData _fabTheme({
+    required Color bg,
+    required Color fg,
+  }) => FloatingActionButtonThemeData(
+    backgroundColor: bg,
+    foregroundColor: fg,
+    elevation: AppDimensions.elevationFlat,
+    focusElevation: AppDimensions.elevationFlat,
+    hoverElevation: AppDimensions.elevationFlat,
+    shape: const CircleBorder(),
   );
 }

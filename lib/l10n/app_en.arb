@@ -18,5 +18,42 @@
   "languageScreenTitle": "Select Language",
   "languageScreenSubtitle": "Choose your preferred language. Changes take effect immediately.",
   "languageContinueButton": "Continue",
-  "languageSkipButton": "Skip for now"
+  "languageSkipButton": "Skip for now",
+
+  "balanceCardLabel": "Total Balance",
+  "balanceShowTooltip": "Show balance",
+  "balanceHideTooltip": "Hide balance",
+  "summaryIncomeLabel": "You get",
+  "summaryExpenseLabel": "You give",
+
+  "homeCustomersHeader": "Customers",
+  "homeAddEntryTooltip": "Add entry",
+  "homeEmptyTitle": "No customers yet",
+  "homeEmptyBody": "Add your first customer to start tracking payments.",
+  "homeEmptyAddCustomer": "Add Customer",
+
+  "navHome": "Home",
+  "navCustomers": "Customers",
+  "navMore": "More",
+  "navReports": "Reports",
+  "navSettings": "Settings",
+
+  "appBarNotificationsTooltip": "Notifications",
+
+
+  "quickActionAddCustomer": "Add Customer",
+  "quickActionGenerateBill": "Generate Bill",
+  "quickActionSendReminder": "Send Reminder",
+  "quickActionRecordPayment": "Record Payment",
+
+  "homeRecentTransactions": "Recent Transactions",
+  "homeSeeAll": "See all",
+  "homeAddEntry": "Add Entry",
+
+  "txnTimeMinutesAgo": "{minutes}m ago",
+  "@txnTimeMinutesAgo": { "placeholders": { "minutes": { "type": "int" } } },
+  "txnTimeToday": "Today, {time}",
+  "@txnTimeToday": { "placeholders": { "time": { "type": "String" } } },
+  "txnTimeYesterday": "Yesterday, {time}",
+  "@txnTimeYesterday": { "placeholders": { "time": { "type": "String" } } }
 }

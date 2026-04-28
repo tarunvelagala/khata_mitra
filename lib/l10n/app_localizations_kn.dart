@@ -59,4 +59,88 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get languageSkipButton => 'ಈಗ ಬೇಡ';
+
+  @override
+  String get balanceCardLabel => 'ಒಟ್ಟು ಬಾಕಿ';
+
+  @override
+  String get balanceShowTooltip => 'ಬಾಕಿ ತೋರಿಸು';
+
+  @override
+  String get balanceHideTooltip => 'ಬಾಕಿ ಮರೆಮಾಡು';
+
+  @override
+  String get summaryIncomeLabel => 'ನಿಮಗೆ ಬರಬೇಕು';
+
+  @override
+  String get summaryExpenseLabel => 'ನೀವು ಕೊಡಬೇಕು';
+
+  @override
+  String get homeCustomersHeader => 'ಗ್ರಾಹಕರು';
+
+  @override
+  String get homeAddEntryTooltip => 'ಎಂಟ್ರಿ ಸೇರಿಸಿ';
+
+  @override
+  String get homeEmptyTitle => 'ಇನ್ನೂ ಯಾವುದೇ ಗ್ರಾಹಕರಿಲ್ಲ';
+
+  @override
+  String get homeEmptyBody => 'ಪಾವತಿ ಟ್ರ್ಯಾಕ್ ಮಾಡಲು ಮೊದಲ ಗ್ರಾಹಕರನ್ನು ಸೇರಿಸಿ.';
+
+  @override
+  String get homeEmptyAddCustomer => 'ಗ್ರಾಹಕ ಸೇರಿಸಿ';
+
+  @override
+  String get navHome => 'ಮುಖಪುಟ';
+
+  @override
+  String get navCustomers => 'ಗ್ರಾಹಕರು';
+
+  @override
+  String get navMore => 'ಇನ್ನಷ್ಟು';
+
+  @override
+  String get navReports => 'ವರದಿಗಳು';
+
+  @override
+  String get navSettings => 'ಸೆಟ್ಟಿಂಗ್ಸ್';
+
+  @override
+  String get appBarNotificationsTooltip => 'ಅಧಿಸೂಚನೆಗಳು';
+
+  @override
+  String get quickActionAddCustomer => 'ಗ್ರಾಹಕ ಸೇರಿಸಿ';
+
+  @override
+  String get quickActionGenerateBill => 'ಬಿಲ್ ತಯಾರಿಸಿ';
+
+  @override
+  String get quickActionSendReminder => 'ರಿಮೈಂಡರ್ ಕಳುಹಿಸಿ';
+
+  @override
+  String get quickActionRecordPayment => 'ಪಾವತಿ ದಾಖಲಿಸಿ';
+
+  @override
+  String get homeRecentTransactions => 'ಇತ್ತೀಚಿನ ವ್ಯವಹಾರಗಳು';
+
+  @override
+  String get homeSeeAll => 'ಎಲ್ಲಾ ನೋಡಿ';
+
+  @override
+  String get homeAddEntry => 'ಎಂಟ್ರಿ ಸೇರಿಸಿ';
+
+  @override
+  String txnTimeMinutesAgo(int minutes) {
+    return '$minutes ನಿಮಿಷ ಹಿಂದೆ';
+  }
+
+  @override
+  String txnTimeToday(String time) {
+    return 'ಇಂದು, $time';
+  }
+
+  @override
+  String txnTimeYesterday(String time) {
+    return 'ನಿನ್ನೆ, $time';
+  }
 }
