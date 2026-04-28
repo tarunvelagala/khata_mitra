@@ -3,6 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:khata_pro/core/constants/app_dimensions.dart';
+import 'package:khata_pro/core/theme/app_colors.dart';
 import 'package:khata_pro/core/theme/app_theme.dart';
 import 'package:khata_pro/features/home/domain/models/customer.dart';
 import 'package:khata_pro/features/home/domain/models/transaction.dart';
@@ -10,6 +11,7 @@ import 'package:khata_pro/features/home/presentation/providers/customer_provider
 import 'package:khata_pro/features/home/presentation/providers/transaction_provider.dart';
 import 'package:khata_pro/features/home/presentation/screens/dashboard_screen.dart';
 import 'package:khata_pro/features/home/presentation/screens/home_shell.dart';
+import 'package:khata_pro/features/home/presentation/widgets/quick_actions_row.dart';
 import 'package:khata_pro/features/home/presentation/widgets/transaction_list_tile.dart';
 import 'package:khata_pro/features/settings/presentation/screens/language_selection_screen.dart';
 import 'package:khata_pro/features/tour/presentation/screens/tour_screen.dart';
@@ -224,6 +226,71 @@ void main() {
 
       final avatarLeft = tester.getTopLeft(tileAvatars.first).dx;
       expect(avatarLeft, equals(AppDimensions.buttonPaddingH));
+    });
+  });
+
+  group('QuickActionsRow — brand styling', () {
+    testWidgets('light mode — primaryContainer bg and primary icon', (tester) async {
+      await _pump(tester, const DashboardScreen(), const Locale('en'), const Size(390, 844));
+
+      final icons = find.byWidgetPredicate(
+        (w) => w is Icon && w.color == AppColors.primary,
+      );
+      expect(icons, findsAtLeastNWidgets(4));
+
+      final materials = find.descendant(
+        of: find.byType(QuickActionsRow),
+        matching: find.byWidgetPredicate(
+          (w) => w is Material && w.color == AppColors.primaryContainer,
+        ),
+      );
+      expect(materials, findsNWidgets(4));
+    });
+
+    testWidgets('dark mode — darkPrimaryContainer bg and darkPrimary icon', (tester) async {
+      tester.view.physicalSize = const Size(780, 1688);
+      tester.view.devicePixelRatio = 2.0;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            customerProvider.overrideWith(() => _StubCustomerNotifier(_stubCustomers)),
+            transactionProvider.overrideWith(() => _StubTransactionNotifier(_stubTransactions)),
+          ],
+          child: MaterialApp(
+            theme: AppTheme.light,
+            darkTheme: AppTheme.dark,
+            themeMode: ThemeMode.dark,
+            locale: const Locale('en'),
+            localizationsDelegates: const [
+              AppLocalizations.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: AppLocalizations.supportedLocales,
+            home: const DashboardScreen(),
+          ),
+        ),
+      );
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+
+      // In dark mode the tokens resolve to dark variants.
+      final icons = find.byWidgetPredicate(
+        (w) => w is Icon && w.color == AppColors.darkPrimary,
+      );
+      expect(icons, findsAtLeastNWidgets(4));
+
+      final materials = find.descendant(
+        of: find.byType(QuickActionsRow),
+        matching: find.byWidgetPredicate(
+          (w) => w is Material && w.color == AppColors.darkPrimaryContainer,
+        ),
+      );
+      expect(materials, findsNWidgets(4));
     });
   });
 

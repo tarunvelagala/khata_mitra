@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import '../../../../l10n/app_localizations.dart';
 
 abstract final class _Dims {
-  static const double buttonSize   = 56.0;
-  static const double buttonRadius = 12.0;
-  static const double iconSize     = 24.0;
-  static const double labelGap     = 6.0;
-  static const double tileWidth    = 72.0;
+  static const double buttonSize   = 64.0;
+  static const double buttonRadius = 16.0;
+  static const double iconSize     = 28.0;
+  static const double labelGap     = 8.0;
+  static const double tileWidth    = 76.0;
 }
 
 class QuickActionsRow extends StatelessWidget {
@@ -35,7 +35,7 @@ class QuickActionsRow extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Material(
-                color: cs.surfaceContainerHigh,
+                color: cs.primaryContainer,
                 borderRadius: BorderRadius.circular(_Dims.buttonRadius),
                 child: InkWell(
                   onTap: () {},
