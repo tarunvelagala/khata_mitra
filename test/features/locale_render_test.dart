@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:khata_pro/core/constants/app_dimensions.dart';
 import 'package:khata_pro/core/theme/app_theme.dart';
 import 'package:khata_pro/features/home/domain/models/customer.dart';
 import 'package:khata_pro/features/home/domain/models/transaction.dart';
@@ -9,6 +10,7 @@ import 'package:khata_pro/features/home/presentation/providers/customer_provider
 import 'package:khata_pro/features/home/presentation/providers/transaction_provider.dart';
 import 'package:khata_pro/features/home/presentation/screens/dashboard_screen.dart';
 import 'package:khata_pro/features/home/presentation/screens/home_shell.dart';
+import 'package:khata_pro/features/home/presentation/widgets/transaction_list_tile.dart';
 import 'package:khata_pro/features/settings/presentation/screens/language_selection_screen.dart';
 import 'package:khata_pro/features/tour/presentation/screens/tour_screen.dart';
 import 'package:khata_pro/l10n/app_localizations.dart';
@@ -198,6 +200,31 @@ void main() {
         );
       }
     }
+  });
+
+  group('DashboardScreen — transaction tile alignment', () {
+    // Regression: SliverPadding was doubling the horizontal inset so tile
+    // content appeared further right than the balance card and quick actions.
+    testWidgets('transaction tile avatar aligns with balance card left edge', (tester) async {
+      await _pump(tester, const DashboardScreen(), const Locale('en'), const Size(390, 844));
+
+      // Find CircleAvatars inside TransactionListTile (not the profile avatar in header).
+      // The tile's horizontal padding is AppDimensions.buttonPaddingH (24px), so the
+      // avatar — the first widget after that padding — should start at x=24.
+      final tiles = find.byType(TransactionListTile);
+      expect(tiles, findsWidgets);
+
+      // Get the avatar inside the first tile by finding CircleAvatars that are
+      // descendants of TransactionListTile.
+      final tileAvatars = find.descendant(
+        of: tiles.first,
+        matching: find.byType(CircleAvatar),
+      );
+      expect(tileAvatars, findsOneWidget);
+
+      final avatarLeft = tester.getTopLeft(tileAvatars.first).dx;
+      expect(avatarLeft, equals(AppDimensions.buttonPaddingH));
+    });
   });
 
   group('DashboardScreen — empty state', () {

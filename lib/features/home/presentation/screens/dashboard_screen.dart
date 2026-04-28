@@ -107,18 +107,13 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                       ],
                     ),
                   ),
-                  SliverPadding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: AppDimensions.buttonPaddingH,
-                    ),
-                    sliver: SliverList(
-                      delegate: SliverChildBuilderDelegate(
-                        (context, index) => TransactionListTile(
-                          transaction: transactions[index],
-                          isMasked: _isMasked,
-                        ),
-                        childCount: transactions.length,
+                  SliverList(
+                    delegate: SliverChildBuilderDelegate(
+                      (context, index) => TransactionListTile(
+                        transaction: transactions[index],
+                        isMasked: _isMasked,
                       ),
+                      childCount: transactions.length,
                     ),
                   ),
                   const SliverToBoxAdapter(child: SizedBox(height: 96)),
