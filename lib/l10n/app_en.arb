@@ -50,6 +50,11 @@
   "homeSeeAll": "See all",
   "homeAddEntry": "Add Entry",
 
+  "customersSearch": "Search customers...",
+  "customersAddButton": "Add Customer",
+  "customersNoResults": "No results for \"{query}\"",
+  "@customersNoResults": { "placeholders": { "query": { "type": "String" } } },
+
   "txnTimeMinutesAgo": "{minutes}m ago",
   "@txnTimeMinutesAgo": { "placeholders": { "minutes": { "type": "int" } } },
   "txnTimeToday": "Today, {time}",

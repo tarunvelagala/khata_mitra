@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../core/constants/app_dimensions.dart';
 import '../../../../l10n/app_localizations.dart';
+import 'customers_screen.dart';
 import 'dashboard_screen.dart';
 
 class HomeShell extends ConsumerStatefulWidget {
@@ -16,7 +18,7 @@ class _HomeShellState extends ConsumerState<HomeShell> {
 
   static const List<Widget> _screens = [
     DashboardScreen(),
-    _PlaceholderScreen(icon: Icons.people_rounded),
+    CustomersScreen(),
     _PlaceholderScreen(icon: Icons.bar_chart_rounded),
     _PlaceholderScreen(icon: Icons.settings_rounded),
   ];
@@ -27,31 +29,36 @@ class _HomeShellState extends ConsumerState<HomeShell> {
 
     return Scaffold(
       body: IndexedStack(index: _selectedIndex, children: _screens),
-      bottomNavigationBar: NavigationBar(
-        selectedIndex: _selectedIndex,
-        onDestinationSelected: (i) => setState(() => _selectedIndex = i),
-        destinations: [
-          NavigationDestination(
-            icon: const Icon(Icons.home_outlined),
-            selectedIcon: const Icon(Icons.home_rounded),
-            label: l10n.navHome,
-          ),
-          NavigationDestination(
-            icon: const Icon(Icons.people_outline_rounded),
-            selectedIcon: const Icon(Icons.people_rounded),
-            label: l10n.navCustomers,
-          ),
-          NavigationDestination(
-            icon: const Icon(Icons.bar_chart_outlined),
-            selectedIcon: const Icon(Icons.bar_chart_rounded),
-            label: l10n.navReports,
-          ),
-          NavigationDestination(
-            icon: const Icon(Icons.settings_outlined),
-            selectedIcon: const Icon(Icons.settings_rounded),
-            label: l10n.navSettings,
-          ),
-        ],
+      bottomNavigationBar: ClipRRect(
+        borderRadius: const BorderRadius.vertical(
+          top: Radius.circular(AppDimensions.radiusLarge),
+        ),
+        child: NavigationBar(
+          selectedIndex: _selectedIndex,
+          onDestinationSelected: (i) => setState(() => _selectedIndex = i),
+          destinations: [
+            NavigationDestination(
+              icon: const Icon(Icons.home_outlined),
+              selectedIcon: const Icon(Icons.home_rounded),
+              label: l10n.navHome,
+            ),
+            NavigationDestination(
+              icon: const Icon(Icons.people_outline_rounded),
+              selectedIcon: const Icon(Icons.people_rounded),
+              label: l10n.navCustomers,
+            ),
+            NavigationDestination(
+              icon: const Icon(Icons.bar_chart_outlined),
+              selectedIcon: const Icon(Icons.bar_chart_rounded),
+              label: l10n.navReports,
+            ),
+            NavigationDestination(
+              icon: const Icon(Icons.settings_outlined),
+              selectedIcon: const Icon(Icons.settings_rounded),
+              label: l10n.navSettings,
+            ),
+          ],
+        ),
       ),
     );
   }

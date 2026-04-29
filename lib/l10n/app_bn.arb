@@ -42,6 +42,11 @@
   "homeRecentTransactions": "সাম্প্রতিক লেনদেন",
   "homeSeeAll": "সব দেখুন",
   "homeAddEntry": "এন্ট্রি যোগ করুন",
+  "customersSearch": "গ্রাহক খুঁজুন...",
+  "customersAddButton": "গ্রাহক যোগ করুন",
+  "customersNoResults": "\"{query}\" এর জন্য কোনো ফলাফল নেই",
+  "@customersNoResults": { "placeholders": { "query": { "type": "String" } } },
+
   "txnTimeMinutesAgo": "{minutes} মিনিট আগে",
   "@txnTimeMinutesAgo": { "placeholders": { "minutes": { "type": "int" } } },
   "txnTimeToday": "আজ, {time}",

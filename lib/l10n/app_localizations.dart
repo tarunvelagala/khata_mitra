@@ -344,6 +344,24 @@ abstract class AppLocalizations {
   /// **'Add Entry'**
   String get homeAddEntry;
 
+  /// No description provided for @customersSearch.
+  ///
+  /// In en, this message translates to:
+  /// **'Search customers...'**
+  String get customersSearch;
+
+  /// No description provided for @customersAddButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Customer'**
+  String get customersAddButton;
+
+  /// No description provided for @customersNoResults.
+  ///
+  /// In en, this message translates to:
+  /// **'No results for \"{query}\"'**
+  String customersNoResults(String query);
+
   /// No description provided for @txnTimeMinutesAgo.
   ///
   /// In en, this message translates to:

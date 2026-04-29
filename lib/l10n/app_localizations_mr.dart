@@ -130,6 +130,17 @@ class AppLocalizationsMr extends AppLocalizations {
   String get homeAddEntry => 'नोंद जोडा';
 
   @override
+  String get customersSearch => 'ग्राहक शोधा...';
+
+  @override
+  String get customersAddButton => 'ग्राहक जोडा';
+
+  @override
+  String customersNoResults(String query) {
+    return '\"$query\" साठी कोणतेही निकाल नाहीत';
+  }
+
+  @override
   String txnTimeMinutesAgo(int minutes) {
     return '$minutes मिनिटांपूर्वी';
   }

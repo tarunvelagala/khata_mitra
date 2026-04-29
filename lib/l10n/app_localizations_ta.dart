@@ -131,6 +131,17 @@ class AppLocalizationsTa extends AppLocalizations {
   String get homeAddEntry => 'பதிவு சேர்க்கவும்';
 
   @override
+  String get customersSearch => 'வாடிக்கையாளர்களை தேடுங்கள்...';
+
+  @override
+  String get customersAddButton => 'வாடிக்கையாளர் சேர்க்கவும்';
+
+  @override
+  String customersNoResults(String query) {
+    return '\"$query\" க்கு எந்த முடிவும் இல்லை';
+  }
+
+  @override
   String txnTimeMinutesAgo(int minutes) {
     return '$minutes நிமிடம் முன்பு';
   }

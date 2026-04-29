@@ -42,6 +42,11 @@
   "homeRecentTransactions": "अलीकडील व्यवहार",
   "homeSeeAll": "सर्व पहा",
   "homeAddEntry": "नोंद जोडा",
+  "customersSearch": "ग्राहक शोधा...",
+  "customersAddButton": "ग्राहक जोडा",
+  "customersNoResults": "\"{query}\" साठी कोणतेही निकाल नाहीत",
+  "@customersNoResults": { "placeholders": { "query": { "type": "String" } } },
+
   "txnTimeMinutesAgo": "{minutes} मिनिटांपूर्वी",
   "@txnTimeMinutesAgo": { "placeholders": { "minutes": { "type": "int" } } },
   "txnTimeToday": "आज, {time}",

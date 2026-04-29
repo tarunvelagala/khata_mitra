@@ -9,6 +9,7 @@ import 'package:khata_pro/features/home/domain/models/customer.dart';
 import 'package:khata_pro/features/home/domain/models/transaction.dart';
 import 'package:khata_pro/features/home/presentation/providers/customer_provider.dart';
 import 'package:khata_pro/features/home/presentation/providers/transaction_provider.dart';
+import 'package:khata_pro/features/home/presentation/screens/customers_screen.dart';
 import 'package:khata_pro/features/home/presentation/screens/dashboard_screen.dart';
 import 'package:khata_pro/features/home/presentation/screens/home_shell.dart';
 import 'package:khata_pro/features/home/presentation/widgets/quick_actions_row.dart';
@@ -434,6 +435,74 @@ void main() {
           },
         );
       }
+    }
+  });
+
+  group('CustomersScreen — list + search + overflow', () {
+    for (final locale in _locales) {
+      for (final sizeEntry in _sizes.entries) {
+        testWidgets(
+          '${_localeNames[locale.languageCode]} on ${sizeEntry.key}',
+          (tester) async {
+            await _pump(tester, const CustomersScreen(), locale, sizeEntry.value);
+            _expectNoOverflow(tester);
+
+            final l10n = await AppLocalizations.delegate.load(locale);
+
+            // Search bar and Add button must render.
+            expect(find.text(l10n.customersSearch),    findsOneWidget);
+            expect(find.text(l10n.customersAddButton), findsOneWidget);
+
+            // Stub data has 3 customers — all tiles should appear.
+            expect(find.text('Anjali Sharma'), findsOneWidget);
+            expect(find.text('Ravi Kumar'),    findsWidgets);
+          },
+        );
+      }
+    }
+  });
+
+  group('CustomersScreen — empty state', () {
+    for (final locale in _locales) {
+      testWidgets(
+        'empty state renders in ${_localeNames[locale.languageCode]}',
+        (tester) async {
+          tester.view.physicalSize = const Size(780, 1600);
+          tester.view.devicePixelRatio = 2.0;
+          addTearDown(tester.view.resetPhysicalSize);
+          addTearDown(tester.view.resetDevicePixelRatio);
+
+          await tester.pumpWidget(
+            ProviderScope(
+              overrides: [
+                customerProvider.overrideWith(
+                  () => _StubCustomerNotifier([]),
+                ),
+                transactionProvider.overrideWith(
+                  () => _StubTransactionNotifier([]),
+                ),
+              ],
+              child: MaterialApp(
+                theme: AppTheme.light,
+                locale: locale,
+                localizationsDelegates: const [
+                  AppLocalizations.delegate,
+                  GlobalMaterialLocalizations.delegate,
+                  GlobalWidgetsLocalizations.delegate,
+                  GlobalCupertinoLocalizations.delegate,
+                ],
+                supportedLocales: AppLocalizations.supportedLocales,
+                home: const CustomersScreen(),
+              ),
+            ),
+          );
+          await tester.pump();
+
+          final l10n = await AppLocalizations.delegate.load(locale);
+          expect(find.text(l10n.homeEmptyTitle), findsOneWidget);
+          _expectNoOverflow(tester);
+        },
+      );
     }
   });
 }

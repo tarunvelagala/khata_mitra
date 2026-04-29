@@ -131,6 +131,17 @@ class AppLocalizationsMl extends AppLocalizations {
   String get homeAddEntry => 'എൻട്രി ചേർക്കൂ';
 
   @override
+  String get customersSearch => 'ഉപഭോക്താക്കളെ തിരയൂ...';
+
+  @override
+  String get customersAddButton => 'ഉപഭോക്താവിനെ ചേർക്കൂ';
+
+  @override
+  String customersNoResults(String query) {
+    return '\"$query\" ക്ക് ഫലങ്ങളൊന്നുമില്ല';
+  }
+
+  @override
   String txnTimeMinutesAgo(int minutes) {
     return '$minutes മിനിറ്റ് മുമ്പ്';
   }

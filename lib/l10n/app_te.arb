@@ -42,6 +42,11 @@
   "homeRecentTransactions": "ఇటీవలి లావాదేవీలు",
   "homeSeeAll": "అన్నీ చూడు",
   "homeAddEntry": "ఎంట్రీ జోడించు",
+  "customersSearch": "కస్టమర్లను వెతకండి...",
+  "customersAddButton": "కస్టమర్ జోడించు",
+  "customersNoResults": "\"{query}\" కు ఫలితాలు లేవు",
+  "@customersNoResults": { "placeholders": { "query": { "type": "String" } } },
+
   "txnTimeMinutesAgo": "{minutes} నిమిషాల క్రితం",
   "@txnTimeMinutesAgo": { "placeholders": { "minutes": { "type": "int" } } },
   "txnTimeToday": "ఈరోజు, {time}",

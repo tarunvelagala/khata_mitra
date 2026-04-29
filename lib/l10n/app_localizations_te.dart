@@ -131,6 +131,17 @@ class AppLocalizationsTe extends AppLocalizations {
   String get homeAddEntry => 'ఎంట్రీ జోడించు';
 
   @override
+  String get customersSearch => 'కస్టమర్లను వెతకండి...';
+
+  @override
+  String get customersAddButton => 'కస్టమర్ జోడించు';
+
+  @override
+  String customersNoResults(String query) {
+    return '\"$query\" కు ఫలితాలు లేవు';
+  }
+
+  @override
   String txnTimeMinutesAgo(int minutes) {
     return '$minutes నిమిషాల క్రితం';
   }

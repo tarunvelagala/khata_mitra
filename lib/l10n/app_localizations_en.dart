@@ -131,6 +131,17 @@ class AppLocalizationsEn extends AppLocalizations {
   String get homeAddEntry => 'Add Entry';
 
   @override
+  String get customersSearch => 'Search customers...';
+
+  @override
+  String get customersAddButton => 'Add Customer';
+
+  @override
+  String customersNoResults(String query) {
+    return 'No results for \"$query\"';
+  }
+
+  @override
   String txnTimeMinutesAgo(int minutes) {
     return '${minutes}m ago';
   }

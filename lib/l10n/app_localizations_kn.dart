@@ -130,6 +130,17 @@ class AppLocalizationsKn extends AppLocalizations {
   String get homeAddEntry => 'ಎಂಟ್ರಿ ಸೇರಿಸಿ';
 
   @override
+  String get customersSearch => 'ಗ್ರಾಹಕರನ್ನು ಹುಡುಕಿ...';
+
+  @override
+  String get customersAddButton => 'ಗ್ರಾಹಕ ಸೇರಿಸಿ';
+
+  @override
+  String customersNoResults(String query) {
+    return '\"$query\" ಗೆ ಯಾವುದೇ ಫಲಿತಾಂಶಗಳಿಲ್ಲ';
+  }
+
+  @override
   String txnTimeMinutesAgo(int minutes) {
     return '$minutes ನಿಮಿಷ ಹಿಂದೆ';
   }

@@ -130,6 +130,17 @@ class AppLocalizationsBn extends AppLocalizations {
   String get homeAddEntry => 'এন্ট্রি যোগ করুন';
 
   @override
+  String get customersSearch => 'গ্রাহক খুঁজুন...';
+
+  @override
+  String get customersAddButton => 'গ্রাহক যোগ করুন';
+
+  @override
+  String customersNoResults(String query) {
+    return '\"$query\" এর জন্য কোনো ফলাফল নেই';
+  }
+
+  @override
   String txnTimeMinutesAgo(int minutes) {
     return '$minutes মিনিট আগে';
   }

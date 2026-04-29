@@ -42,6 +42,11 @@
   "homeRecentTransactions": "हाल के लेनदेन",
   "homeSeeAll": "सभी देखें",
   "homeAddEntry": "एंट्री जोड़ें",
+  "customersSearch": "ग्राहक खोजें...",
+  "customersAddButton": "ग्राहक जोड़ें",
+  "customersNoResults": "\"{query}\" के लिए कोई परिणाम नहीं",
+  "@customersNoResults": { "placeholders": { "query": { "type": "String" } } },
+
   "txnTimeMinutesAgo": "{minutes} मिनट पहले",
   "@txnTimeMinutesAgo": { "placeholders": { "minutes": { "type": "int" } } },
   "txnTimeToday": "आज, {time}",

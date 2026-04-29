@@ -42,6 +42,11 @@
   "homeRecentTransactions": "ಇತ್ತೀಚಿನ ವ್ಯವಹಾರಗಳು",
   "homeSeeAll": "ಎಲ್ಲಾ ನೋಡಿ",
   "homeAddEntry": "ಎಂಟ್ರಿ ಸೇರಿಸಿ",
+  "customersSearch": "ಗ್ರಾಹಕರನ್ನು ಹುಡುಕಿ...",
+  "customersAddButton": "ಗ್ರಾಹಕ ಸೇರಿಸಿ",
+  "customersNoResults": "\"{query}\" ಗೆ ಯಾವುದೇ ಫಲಿತಾಂಶಗಳಿಲ್ಲ",
+  "@customersNoResults": { "placeholders": { "query": { "type": "String" } } },
+
   "txnTimeMinutesAgo": "{minutes} ನಿಮಿಷ ಹಿಂದೆ",
   "@txnTimeMinutesAgo": { "placeholders": { "minutes": { "type": "int" } } },
   "txnTimeToday": "ಇಂದು, {time}",
