@@ -116,8 +116,11 @@ abstract final class AppTheme {
       icon: AppColors.primary,
     ),
     navigationBarTheme: _navigationBarTheme(
+      bg: AppColors.surfaceContainerLowest,
       indicator: AppColors.primaryContainer,
-      indicatorIcon: AppColors.onPrimaryContainer,
+      selectedIcon: AppColors.primary,
+      selectedLabel: AppColors.primary,
+      unselectedIcon: AppColors.onSurfaceVariant,
     ),
     floatingActionButtonTheme: _fabTheme(
       bg: AppColors.primary,
@@ -149,8 +152,11 @@ abstract final class AppTheme {
       icon: AppColors.darkPrimary,
     ),
     navigationBarTheme: _navigationBarTheme(
+      bg: AppColors.darkSurfaceContainerLowest,
       indicator: AppColors.darkPrimaryContainer,
-      indicatorIcon: AppColors.darkOnPrimaryContainer,
+      selectedIcon: AppColors.darkPrimary,
+      selectedLabel: AppColors.darkPrimary,
+      unselectedIcon: AppColors.darkOnSurfaceVariant,
     ),
     floatingActionButtonTheme: _fabTheme(
       bg: AppColors.darkPrimary,
@@ -245,15 +251,36 @@ abstract final class AppTheme {
   );
 
   static NavigationBarThemeData _navigationBarTheme({
+    required Color bg,
     required Color indicator,
-    required Color indicatorIcon,
+    required Color selectedIcon,
+    required Color selectedLabel,
+    required Color unselectedIcon,
   }) => NavigationBarThemeData(
+    backgroundColor: bg,
+    elevation: AppDimensions.elevationFlat,
     indicatorColor: indicator,
+    indicatorShape: const StadiumBorder(),
+    labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
     iconTheme: WidgetStateProperty.resolveWith((states) {
       if (states.contains(WidgetState.selected)) {
-        return IconThemeData(color: indicatorIcon);
+        return IconThemeData(color: selectedIcon);
       }
-      return null;
+      return IconThemeData(color: unselectedIcon);
+    }),
+    labelTextStyle: WidgetStateProperty.resolveWith((states) {
+      if (states.contains(WidgetState.selected)) {
+        return TextStyle(
+          color: selectedLabel,
+          fontSize: 12,
+          fontWeight: FontWeight.w600,
+        );
+      }
+      return TextStyle(
+        color: unselectedIcon,
+        fontSize: 12,
+        fontWeight: FontWeight.w500,
+      );
     }),
   );
 

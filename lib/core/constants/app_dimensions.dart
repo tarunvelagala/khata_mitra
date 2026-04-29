@@ -12,6 +12,9 @@ abstract final class AppDimensions {
   /// Icon containers, larger surface elements.
   static const double radiusMedium = 16;
 
+  /// Nav bar top corners and tour footer — ties the shell together.
+  static const double radiusLarge = 24;
+
   /// Badges, chips, pill-shaped elements.
   static const double radiusPill = 999;
 
